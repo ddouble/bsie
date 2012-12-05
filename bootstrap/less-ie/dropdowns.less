@@ -21,6 +21,11 @@
 // --------------------
 .caret {
   display: inline-block;
+
+  /* fix for IE6 inline-block */
+  *display:inline;
+  *zoom:1;
+
   width: 0;
   height: 0;
   vertical-align: top;
@@ -46,6 +51,12 @@
   display: none; // none by default, but block on "open" of the menu
   float: left;
   min-width: 160px;
+  *height: 1px;
+
+  /* fix for IE6 min-width */
+  width: auto !important;
+  width: 160px;
+
   padding: 5px 0;
   margin: 2px 0 0; // override default ul
   list-style: none;
@@ -72,8 +83,12 @@
   }
 
   // Links within the dropdown menu
-  li > a {
+  li a {
     display: block;
+
+    /* fix for IE6 BFC */
+    *zoom:1;
+
     padding: 3px 20px;
     clear: both;
     font-weight: normal;
@@ -85,18 +100,27 @@
 
 // Hover state
 // -----------
-.dropdown-menu li > a:hover,
-.dropdown-menu li > a:focus,
-.dropdown-submenu:hover > a {
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus,
+.dropdown-submenu:hover a,
+.dropdown-submenu.hover a /* fix for IE6 li:hover */ {
   text-decoration: none;
   color: @dropdownLinkColorHover;
   #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
 }
+/* fix for IE6 li:hover */
+.dropdown-submenu.hover * a {
+  *color: inherit;
+  *background-color: @white;
+  *filter: none;
+  *filter:chroma(color=@white);
+  *background-image: none;
+}
 
 // Active state
 // ------------
-.dropdown-menu .active > a,
-.dropdown-menu .active > a:hover {
+.dropdown-menu .active a,
+.dropdown-menu .active a:hover {
   color: @dropdownLinkColorActive;
   text-decoration: none;
   outline: 0;
@@ -106,14 +130,19 @@
 // Disabled state
 // --------------
 // Gray out text and ensure the hover state remains gray
-.dropdown-menu .disabled > a,
-.dropdown-menu .disabled > a:hover {
+.dropdown-menu .disabled a,
+.dropdown-menu .disabled a:hover {
   color: @grayLight;
 }
 // Nuke hover effects
-.dropdown-menu .disabled > a:hover {
+.dropdown-menu .disabled a:hover {
   text-decoration: none;
   background-color: transparent;
+
+  /* fix for ie6 transparent */
+  *background-color: @white;
+  *filter:chroma(color=@white);
+
   background-image: none; // Remove CSS gradient
   cursor: default;
 }
@@ -125,16 +154,23 @@
   // make the menu appear below buttons that appeared later on the page
   *z-index: @zindexDropdown;
 
-  & > .dropdown-menu {
+  .dropdown-menu {
     display: block;
+
+    /* fix for IE6 inline-block */
+    *zoom:1;
   }
 }
 
 // Right aligned dropdowns
 // ---------------------------
-.pull-right > .dropdown-menu {
+.pull-right .dropdown-menu {
   right: 0;
   left: auto;
+}
+.pull-right * .dropdown-menu {
+  right: auto;
+  left: 0;
 }
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
@@ -161,9 +197,12 @@
 // ---------------------------
 .dropdown-submenu {
   position: relative;
+
+  /* fix for IE6 absolute element will expand parent element's height */
+  *zoom:1;
 }
 // Default dropdowns
-.dropdown-submenu > .dropdown-menu {
+.dropdown-submenu .dropdown-menu {
   top: 0;
   left: 100%;
   margin-top: -6px;
@@ -172,12 +211,13 @@
      -moz-border-radius: 0 6px 6px 6px;
           border-radius: 0 6px 6px 6px;
 }
-.dropdown-submenu:hover > .dropdown-menu {
+.dropdown-submenu:hover .dropdown-menu,
+.dropdown-submenu.hover .dropdown-menu {
   display: block;
 }
 
 // Dropups
-.dropup .dropdown-submenu > .dropdown-menu {
+.dropup .dropdown-submenu .dropdown-menu {
   top: auto;
   bottom: 0;
   margin-top: 0;
@@ -188,20 +228,44 @@
 }
 
 // Caret to indicate there is a submenu
-.dropdown-submenu > a:after {
+.dropdown-submenu a:after {
   display: block;
+
+  /* fix for IE6 BFC */
+  *zoom:1;
+
   content: " ";
   float: right;
   width: 0;
   height: 0;
   border-color: transparent;
+
+  /* fix for IE6 transparent */
+  *border-color: @white;
+  *filter:chroma(color=@white);
+
   border-style: solid;
   border-width: 5px 0 5px 5px;
   border-left-color: darken(@dropdownBackground, 20%);
   margin-top: 5px;
   margin-right: -10px;
 }
-.dropdown-submenu:hover > a:after {
+.dropdown-submenu .ddtri {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent darken(@dropdownBackground, 20%);
+  line-height: 0px;
+  _border-color: @white @white @white darken(@dropdownBackground, 20%);
+  _filter: chroma(color=@white);
+  display:block;
+  zoom:1;
+  float:right;
+  margin:-1.3em 5px 0 0;
+}
+.dropdown-submenu:hover a:after,
+.dropdown-submenu.hover a:after {
   border-left-color: @dropdownLinkColorHover;
 }
 
@@ -212,12 +276,21 @@
   float: none;
 
   // Positioning the submenu
-  > .dropdown-menu {
+  .dropdown-menu {
     left: -100%;
     margin-left: 10px;
+    *margin-left: 18px;
     -webkit-border-radius: 6px 0 6px 6px;
        -moz-border-radius: 6px 0 6px 6px;
             border-radius: 6px 0 6px 6px;
+  }
+  /* fix for IE6 */
+  * .dropdown-menu {
+    left: 0;
+    margin-left: 0;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
   }
 }
 
