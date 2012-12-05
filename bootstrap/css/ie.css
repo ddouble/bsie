@@ -1,0 +1,19 @@
+/* NAVBAR */
+
+/* !CPU HIGH, fix for IE6 shake when scroll */
+* html,* html body {
+  _background-image:url(about:blank);
+  _background-attachment:fixed;
+}
+/* !CPU HIGH, fix for IE6 not support fixed position */
+.navbar-fixed-top {
+  _position:absolute;
+  _bottom:auto;
+  _top:expression(eval(document.documentElement.scrollTop));
+}
+/* !CPU HIGH, fix for IE6 not support fixed position */
+.navbar-fixed-bottom {
+  _position:absolute;
+  _bottom:auto;
+  _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
