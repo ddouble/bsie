@@ -7,6 +7,10 @@
 .dropup,
 .dropdown {
   position: relative;
+
+  /* fix for IE6 BFC */
+  display: inline;
+  *zoom:1;
 }
 .dropdown-toggle {
   // The caret makes the toggle a bit too tall in IE7

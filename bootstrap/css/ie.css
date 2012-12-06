@@ -17,3 +17,9 @@
   _bottom:auto;
   _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
 }
+
+/* DROPDOWN */
+.dropup,
+.dropdown {
+  *zoom:1;
+}
