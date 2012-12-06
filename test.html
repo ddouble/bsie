@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
 <!--   <link rel="stylesheet/less" type="text/css" href="bootstrap/less/bootstrap.less">
   <script src="less.min.js" type="text/javascript"></script>
  -->
@@ -10,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie.css">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
   <![endif]-->
-  
 </head>
 <body>
 
@@ -105,7 +105,7 @@
   </div>
 
 
-<div class="bs-docs-example" style="min-height: 180px;">
+<div class="bs-docs-example clearfix" style="min-height: 180px;">
 
             <div class="pull-lef1t" style="float:left;">
               <p class="muted">Default</p>
@@ -169,11 +169,15 @@
                       <li><a tabindex="-1" href="#">Second level link</a></li>
                     </ul>
                   </li>
+<!--                   <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li> -->
                 </ul>
               <!-- </div> -->
             </div>
 
           </div>
+
+<br /><br /><br />
 
 
     <p style="height:1000px;"></p>
@@ -184,17 +188,23 @@
   (function($) {
     function bootstrapIE6() {
       // fix :after :before
-      $('.dropdown-submenu > a').after('<span class="ddtri"></span>');
+      $('.dropdown-submenu > a').after('<span class="dropdown-tri"></span>');
+      $('.dropdown-submenu.pull-left').removeClass('pull-left').addClass('dropdown-submenu-pull-left');
     }
 
     bootstrapIE6();
 
     // fix for IE6 not support li:hover
-    $('ul').on('mouseenter', 'li', function () {
-      $(this).addClass('hover');
-    }).on('mouseleave', 'li', function () {
-      $(this).removeClass('hover');
-    });
+    var lis = ['dropdown-submenu'];
+    for (var i in lis) {
+      var child = 'li.' + lis[i];
+      var hover = lis[i] + '-hover';
+      $('ul').on('mouseenter', child, function () {
+        $(this).addClass(hover);
+      }).on('mouseleave', child, function () {
+        $(this).removeClass(hover);
+      });
+    }
 
 
 

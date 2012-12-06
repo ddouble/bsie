@@ -274,7 +274,8 @@
 }
 
 // Left aligned submenus
-.dropdown-submenu.pull-left {
+//.dropdown-submenu.pull-left
+.dropdown-submenu-pull-left /* fix for IE6 multi class selector */ {
   // Undo the float
   // Yes, this is awkward since .pull-left adds a float, but it sticks to our conventions elsewhere.
   float: none;
