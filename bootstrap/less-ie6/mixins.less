@@ -684,3 +684,52 @@
   }
 
 }
+
+
+// CSS Arrow, for IE6+, firefox, chrome
+.arrow-up(@bottom, @height, @color) {
+  /**
+  * @bottom triangle bottom length
+  * @height triangle height
+  * @color triangle color
+  */
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 @bottom/2 @height;
+  border-color: transparent transparent @color;
+  line-height: 0px;
+  *border-color: @transparentIE6 @transparentIE6 @color;
+  *filter: progid:DXImageTransform.Microsoft.Chroma(color=@transparentIE6);
+}
+
+.arrow-down(@bottom, @height, @color) {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: @height @bottom/2 0;
+  border-color: @color transparent transparent;
+  line-height: 0px;
+  *border-color: @color @transparentIE6 @transparentIE6;
+  *filter: progid:DXImageTransform.Microsoft.Chroma(color=@transparentIE6);
+}
+.arrow-right(@bottom, @height, @color) {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: @bottom/2 0 @bottom/2 @height;
+  border-color: transparent transparent transparent @color;
+  line-height: 0px;
+  *border-color: @transparentIE6 @transparentIE6 @transparentIE6 @color;
+  *filter: progid:DXImageTransform.Microsoft.Chroma(color=@transparentIE6);
+}
+.arrow-left(@bottom, @height, @color) {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: @bottom/2 @height @bottom/2 0;
+  border-color: transparent @color transparent transparent;
+  line-height: 0px;
+  *border-color: @transparentIE6 @color @transparentIE6 @transparentIE6;
+  *filter: progid:DXImageTransform.Microsoft.Chroma(color=@transparentIE6);
+}

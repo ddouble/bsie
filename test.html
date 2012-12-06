@@ -73,7 +73,7 @@
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
@@ -204,9 +204,10 @@
 
     function bootstrapIE6() {
       if ($.eb.ie(0,6)) {
-        // fix :after :before
+        // fix dropdown-submenu a:after
         $('.dropdown-submenu > a').after('<span class="dropdown-tri"></span>');
         $('.dropdown-submenu.pull-left').removeClass('pull-left').addClass('dropdown-submenu-pull-left');
+        // $('.navbar .nav.pull-right').removeClass('pull-right').addClass('nav-pull-right');
       }
     }
 
