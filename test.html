@@ -186,27 +186,46 @@
   <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
   <script type="text/javascript">
   (function($) {
+    $.eb = $.eb || {};
+
+    $.eb.ie = function (min,max) {
+      if ($.browser.msie) {
+        var v = Math.floor($.browser.version);
+        if (v >= min && v <= max) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+
     function bootstrapIE6() {
-      // fix :after :before
-      $('.dropdown-submenu > a').after('<span class="dropdown-tri"></span>');
-      $('.dropdown-submenu.pull-left').removeClass('pull-left').addClass('dropdown-submenu-pull-left');
-    }
-
-    bootstrapIE6();
-
-    // fix for IE6 not support li:hover
-    var lis = ['dropdown-submenu'];
-    for (var i in lis) {
-      var child = 'li.' + lis[i];
-      var hover = lis[i] + '-hover';
-      $('ul').on('mouseenter', child, function () {
-        $(this).addClass(hover);
-      }).on('mouseleave', child, function () {
-        $(this).removeClass(hover);
-      });
+      if ($.eb.ie(0,6)) {
+        // fix :after :before
+        $('.dropdown-submenu > a').after('<span class="dropdown-tri"></span>');
+        $('.dropdown-submenu.pull-left').removeClass('pull-left').addClass('dropdown-submenu-pull-left');
+      }
     }
 
 
+    $(document).ready(function () {
+      bootstrapIE6();
+
+      if ($.eb.ie(0,6)) {
+        // fix for IE6 not support li:hover
+        var lis = ['dropdown-submenu'];
+        for (var i in lis) {
+          var child = 'li.' + lis[i];
+          var hover = lis[i] + '-hover';
+          $('ul').on('mouseenter', child, function () {
+            $(this).addClass(hover);
+          }).on('mouseleave', child, function () {
+            $(this).removeClass(hover);
+          });
+        }
+      }
+
+    });
 
   })(jQuery);
   </script>
