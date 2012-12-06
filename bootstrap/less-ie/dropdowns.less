@@ -54,8 +54,8 @@
   *height: 1px;
 
   /* fix for IE6 min-width */
-  width: auto !important;
-  width: 160px;
+  *width: auto !important;
+  *width: 160px;
 
   padding: 5px 0;
   margin: 2px 0 0; // override default ul
@@ -100,20 +100,21 @@
 
 // Hover state
 // -----------
+
 .dropdown-menu li a:hover,
 .dropdown-menu li a:focus,
 .dropdown-submenu:hover a,
-.dropdown-submenu.hover a /* fix for IE6 li:hover */ {
+.dropdown-submenu-hover a /* fix for IE6 li:hover */ {
   text-decoration: none;
   color: @dropdownLinkColorHover;
   #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
 }
 /* fix for IE6 li:hover */
-.dropdown-submenu.hover * a {
+.dropdown-submenu-hover * a {
   *color: inherit;
-  *background-color: @white;
+  *background-color: @transparentIE6;
   *filter: none;
-  *filter:chroma(color=@white);
+  *filter:chroma(color=@transparentIE6);
   *background-image: none;
 }
 
@@ -140,8 +141,8 @@
   background-color: transparent;
 
   /* fix for ie6 transparent */
-  *background-color: @white;
-  *filter:chroma(color=@white);
+  *background-color: @transparentIE6;
+  *filter:chroma(color=@transparentIE6);
 
   background-image: none; // Remove CSS gradient
   cursor: default;
@@ -199,6 +200,7 @@
   position: relative;
 
   /* fix for IE6 absolute element will expand parent element's height */
+  *display: inline;
   *zoom:1;
 }
 // Default dropdowns
@@ -212,7 +214,7 @@
           border-radius: 0 6px 6px 6px;
 }
 .dropdown-submenu:hover .dropdown-menu,
-.dropdown-submenu.hover .dropdown-menu {
+.dropdown-submenu-hover .dropdown-menu {
   display: block;
 }
 
@@ -241,8 +243,8 @@
   border-color: transparent;
 
   /* fix for IE6 transparent */
-  *border-color: @white;
-  *filter:chroma(color=@white);
+  *border-color: @transparentIE6;
+  *filter:chroma(color=@transparentIE6);
 
   border-style: solid;
   border-width: 5px 0 5px 5px;
@@ -250,22 +252,24 @@
   margin-top: 5px;
   margin-right: -10px;
 }
-.dropdown-submenu .ddtri {
+/* fix for IE6 */
+.dropdown-submenu .dropdown-tri {
   width: 0px;
   height: 0px;
   border-style: solid;
   border-width: 5px 0 5px 5px;
   border-color: transparent transparent transparent darken(@dropdownBackground, 20%);
   line-height: 0px;
-  _border-color: @white @white @white darken(@dropdownBackground, 20%);
-  _filter: chroma(color=@white);
+  _border-color: @transparentIE6 @transparentIE6 @transparentIE6 darken(@dropdownBackground, 20%);
+  _filter: chroma(color=@transparentIE6);
   display:block;
   zoom:1;
   float:right;
   margin:-1.3em 5px 0 0;
 }
 .dropdown-submenu:hover a:after,
-.dropdown-submenu.hover a:after {
+.dropdown-submenu-hover .dropdown-tri /* fix for IE6 */
+{
   border-left-color: @dropdownLinkColorHover;
 }
 
