@@ -13,12 +13,29 @@
 }
 
 // Make links block level
-.nav > li > a {
+// .nav > li > a {
+.nav li a /* fix for IE6 */ {
   display: block;
+  zoom:1;
 }
-.nav > li > a:hover {
+.nav * li a /* fix for IE6 */ {
+  display: inline;
+}
+.nav li * a /* fix for IE6 */ {
+  display: inline;
+}
+// .nav > li > a:hover {
+.nav li a:hover /* fix for IE6 */ {
   text-decoration: none;
   background-color: @grayLighter;
+}
+.nav * li a:hover /* fix for IE6 */ {
+  text-decoration: inherit;
+  background-color: inherit;
+}
+.nav li * a:hover /* fix for IE6 */ {
+  text-decoration: inherit;
+  background-color: inherit;
 }
 
 // Redeclare pull classes because of specifity
@@ -38,7 +55,8 @@
   text-transform: uppercase;
 }
 // Space them out when they follow another list item (link)
-.nav li + .nav-header {
+// .nav li + .nav-header {
+.nav .nav-header /* fix for IE6 */ {
   margin-top: 9px;
 }
 
@@ -52,20 +70,48 @@
   padding-right: 15px;
   margin-bottom: 0;
 }
-.nav-list > li > a,
+// .nav-list > li > a,
+.nav-list li a, /* fix for IE6 */
 .nav-list .nav-header {
   margin-left:  -15px;
   margin-right: -15px;
   text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
-.nav-list > li > a {
+// .nav-list > li > a {
+.nav-list li a /* fix for IE6 */ {
   padding: 3px 15px;
 }
-.nav-list > .active > a,
-.nav-list > .active > a:hover {
+.nav-list * li a /* fix for IE6 */ {
+  margin-left:  0;
+  margin-right: 0;
+  text-shadow: none;
+  padding:0;
+}
+.nav-list li * a /* fix for IE6 */ {
+  margin-left:  0;
+  margin-right: 0;
+  text-shadow: none;
+  padding:0;
+}
+// .nav-list > .active > a,
+// .nav-list > .active > a:hover {
+.nav-list .active a,
+.nav-list .active a:hover /* fix for IE6 */ {
   color: @white;
   text-shadow: 0 -1px 0 rgba(0,0,0,.2);
   background-color: @linkColor;
+}
+.nav-list * .active a,
+.nav-list * .active a:hover /* fix for IE6 */ {
+  color: inherit;
+  text-shadow: none;
+  background-color: inherit;
+}
+.nav-list .active * a,
+.nav-list .active * a:hover /* fix for IE6 */ {
+  color: inherit;
+  text-shadow: none;
+  background-color: inherit;
 }
 .nav-list [class^="icon-"],
 .nav-list [class*=" icon-"] {
