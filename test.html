@@ -6,13 +6,15 @@
   <script src="less.min.js" type="text/javascript"></script>
  -->
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-  
+<!--   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie.css">-->
+
   <!--[if lte IE 6]>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie.css">
   <![endif]-->
   <!--[if lte IE 7]>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
   <![endif]-->
+
 </head>
 <body>
 
@@ -74,13 +76,13 @@
             <li><a href="#">Link</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
+              <ul class="dropdown-menu" style="">
+                <li><a href="#" style="">Action </a></li>
+                <li><a href="#">Another action faw fwe  erwerf erw ewrew</a></li>
                 <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
+                <li class="divider" style=""></li>
                 <li class="nav-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="#" style="">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
@@ -114,8 +116,8 @@
               <p class="muted">Default</p>
               <div class="dropdown">
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
-                  <li class="active"><a tabindex="-1" href="#">Action</a></li>
-                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li class="active"><a tabindex="-1" href="#">Action fasdfas</a></li>
+                  <li><a tabindex="-1" href="#">Another action fasfas fasd fas fas fas</a></li>
                   <li class="disabled"><a tabindex="-1" href="#">Something else here</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-submenu">
@@ -172,8 +174,8 @@
                       <li><a tabindex="-1" href="#">Second level link</a></li>
                     </ul>
                   </li>
-<!--                   <li><a tabindex="-1" href="#">Something else here</a></li>
-                  <li><a tabindex="-1" href="#">Something else here</a></li> -->
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
                 </ul>
               </div>
             </div>
@@ -181,7 +183,6 @@
           </div>
 
 <br /><br /><br />
-
 
     <p style="height:1000px;"></p>
 
@@ -192,6 +193,7 @@
     $.eb = $.eb || {};
 
     $.eb.ie = function (min,max) {
+      // return true;
       if ($.browser.msie) {
         var v = Math.floor($.browser.version);
         if (v >= min && v <= max) {
@@ -202,12 +204,39 @@
     }
 
 
-    function bootstrapIE6() {
+    function bootstrapIE6(el) {
+      function dropdownWidthFix(el, f) {
+        el.each(function () {
+          var w = 0;
+          $(this).children('li').each(function() {
+            var aw = $(this).outerWidth();
+            if (aw > w) w = aw;
+          });
+
+          $(this).width(w);
+        });
+      }
+
       if ($.eb.ie(0,6)) {
-        // fix dropdown-submenu a:after
+        el = el || $('html');
+
+        //-------------
+        // dropdown 
+        //-------------
+
+        /// fix :after selector -- dropdown-submenu > a:after
         $('.dropdown-submenu > a').after('<span class="dropdown-tri"></span>');
+
+        /// fix multi class selector -- .dropdown-submenu.pull-left
         $('.dropdown-submenu.pull-left').removeClass('pull-left').addClass('dropdown-submenu-pull-left');
         // $('.navbar .nav.pull-right').removeClass('pull-right').addClass('nav-pull-right');
+
+        /// fix ul li 100% width bug, set ul width to max width of it's sub li
+        dropdownWidthFix($('.dropdown-menu:visible', el));
+        $('.dropdown-toggle', el).parent().on('propertychange', function() {
+          dropdownWidthFix($('.dropdown-menu:visible', this), true);
+        });
+
       }
     }
 
@@ -216,6 +245,11 @@
       bootstrapIE6();
 
       if ($.eb.ie(0,6)) {
+        
+        //-------------
+        // dropdown 
+        //-------------
+
         // fix for IE6 not support li:hover
         var lis = ['dropdown-submenu'];
         for (var i in lis) {
@@ -227,6 +261,7 @@
             $(this).removeClass(hover);
           });
         }
+
       }
 
     });
