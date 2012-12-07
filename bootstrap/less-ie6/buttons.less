@@ -27,7 +27,8 @@
   .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
 
   // Hover state
-  &:hover {
+  &:hover,
+  &.btn-hover {
     color: @grayDark;
     text-decoration: none;
     background-color: darken(@white, 10%);
@@ -150,26 +151,56 @@ input[type="button"] {
 }
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+  &.btn-primary-hover {
+    color: #fff;
+    background-color: @btnPrimaryBackgroundHighlight;
+    *background-color: darken(@btnPrimaryBackgroundHighlight, 5%);
+  }
 }
 // Warning appears are orange
 .btn-warning {
   .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+  &.btn-warning-hover {
+    color: #fff;
+    background-color: @btnWarningBackgroundHighlight;
+    *background-color: darken(@btnWarningBackgroundHighlight, 5%);
+  }
 }
 // Danger and error appear as red
 .btn-danger {
   .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+  &.btn-danger-hover {
+    color: #fff;
+    background-color: @btnDangerBackgroundHighlight;
+    *background-color: darken(@btnDangerBackgroundHighlight, 5%);
+  }
 }
 // Success appears as green
 .btn-success {
   .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+  &.btn-success-hover {
+    color: #fff;
+    background-color: @btnSuccessBackgroundHighlight;
+    *background-color: darken(@btnSuccessBackgroundHighlight, 5%);
+  }
 }
 // Info appears as a neutral blue
 .btn-info {
   .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+  &.btn-info-hover {
+    color: #fff;
+    background-color: @btnInfoBackgroundHighlight;
+    *background-color: darken(@btnInfoBackgroundHighlight, 5%);
+  }
 }
 // Inverse appears as dark gray
 .btn-inverse {
   .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+  &.btn-inverse-hover {
+    color: #fff;
+    background-color: @btnInverseBackgroundHighlight;
+    *background-color: lighten(@btnInverseBackgroundHighlight, 10%);
+  }
 }
 
 

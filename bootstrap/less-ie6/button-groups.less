@@ -15,8 +15,13 @@
 }
 
 // Space out series of button groups
-.btn-group + .btn-group {
+// .btn-group + .btn-group {
+.btn-group /* fix for IE6 */ {
   margin-left: 5px;
+}
+.btn-group-first {
+  /* fix for IE6 */
+  margin-left: 0;
 }
 
 // Optional: Group multiple button groups together for a toolbar
@@ -24,34 +29,55 @@
   font-size: 0; // Hack to remove whitespace that results from using inline-block
   margin-top: @baseLineHeight / 2;
   margin-bottom: @baseLineHeight / 2;
-  .btn + .btn,
-  .btn-group + .btn,
-  .btn + .btn-group {
+  // .btn + .btn,
+  // .btn-group + .btn,
+  // .btn + .btn-group {
+  .btn
+  .btn-group /* fix for IE6 */ {
     margin-left: 5px;
+  }
+  .btn-first,
+  .btn-group-first /* fix for IE6 */ {
+    margin-left: 0;
   }
 }
 
 // Float them, remove border radius, then re-add to first and last elements
-.btn-group > .btn {
+// .btn-group > .btn {
+.btn-group .btn /* fix for IE6 */ {
   position: relative;
   .border-radius(0);
 }
-.btn-group > .btn + .btn {
+//.btn-group > .btn + .btn {
+.btn-group .btn /* fix for IE6 */ {
   margin-left: -1px;
 }
-.btn-group > .btn,
-.btn-group > .dropdown-menu {
+.btn-group .btn-first /* fix for IE6 */ {
+  margin-left: 0;
+}
+// .btn-group > .btn,
+// .btn-group > .dropdown-menu {
+.btn-group .btn,
+.btn-group .dropdown-menu /* fix for IE6 */ {
   font-size: @baseFontSize; // redeclare as part 2 of font-size inline-block hack
+}
+.btn-group .dropdown-menu /* fix for IE6 */ {
+  .divider {
+    _margin:5px 0 -5px;
+  }
 }
 
 // Reset fonts for other sizes
-.btn-group > .btn-mini {
+// .btn-group > .btn-mini {
+.btn-group .btn-mini /* fix for IE6 */ {
   font-size: 11px;
 }
-.btn-group > .btn-small {
+// .btn-group > .btn-small {
+.btn-group .btn-small /* fix for IE6 */ {
   font-size: 12px;
 }
-.btn-group > .btn-large {
+// .btn-group > .btn-large {
+.btn-group .btn-large /* fix for IE6 */ {
   font-size: 16px;
 }
 
@@ -115,31 +141,36 @@
 // ----------------------
 
 // Give the line between buttons some depth
-.btn-group > .btn + .dropdown-toggle {
-  padding-left: 8px;
-  padding-right: 8px;
+// .btn-group > .btn + .dropdown-toggle {
+.btn-group .dropdown-toggle /* fix for IE6 */ {
+  padding-left: 9px;
+  padding-right: 9px;
   .box-shadow(~"inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
-  *padding-top: 5px;
-  *padding-bottom: 5px;
+  *padding-top: 6px;
+  *padding-bottom: 6px;
 }
-.btn-group > .btn-mini + .dropdown-toggle {
-  padding-left: 5px;
-  padding-right: 5px;
-  *padding-top: 2px;
-  *padding-bottom: 2px;
+// .btn-group > .btn-mini + .dropdown-toggle {
+.btn-group .btn-mini-dropdown-toggle /* fix for IE6 */ {
+  padding-left: 7px;
+  padding-right: 7px;
+  *padding-top: 4px;
+  *padding-bottom: 4px;
 }
-.btn-group > .btn-small + .dropdown-toggle {
+// .btn-group > .btn-small + .dropdown-toggle {
+.btn-group .btn-small-dropdown-toggle /* fix for IE6 */ {
   *padding-top: 5px;
   *padding-bottom: 4px;
 }
-.btn-group > .btn-large + .dropdown-toggle {
-  padding-left: 12px;
-  padding-right: 12px;
-  *padding-top: 7px;
-  *padding-bottom: 7px;
+// .btn-group > .btn-large + .dropdown-toggle {
+.btn-group .btn-large-dropdown-toggle /* fix for IE6 */ {
+  padding-left: 17px;
+  padding-right: 17px;
+  *padding-top: 12px;
+  *padding-bottom: 12px;
 }
 
-.btn-group.open {
+// .btn-group.open {
+.btn-group-open {
 
   // The clickable button for toggling the menu
   // Remove the gradient and set the same inset shadow as the :active state
@@ -149,25 +180,32 @@
   }
 
   // Keep the hover's background when dropdown is open
-  .btn.dropdown-toggle {
+  // .btn.dropdown-toggle {
+  .btn-dropdown-toggle {
     background-color: @btnBackgroundHighlight;
   }
-  .btn-primary.dropdown-toggle {
+  // .btn-primary.dropdown-toggle,
+  .btn-primary-dropdown-toggle {
     background-color: @btnPrimaryBackgroundHighlight;
   }
-  .btn-warning.dropdown-toggle {
+  // .btn-warning.dropdown-toggle {
+  .btn-warning-dropdown-toggle {
     background-color: @btnWarningBackgroundHighlight;
   }
-  .btn-danger.dropdown-toggle {
+  // .btn-danger.dropdown-toggle {
+  .btn-danger-dropdown-toggle {
     background-color: @btnDangerBackgroundHighlight;
   }
-  .btn-success.dropdown-toggle {
+  // .btn-success.dropdown-toggle {
+  .btn-success-dropdown-toggle {
     background-color: @btnSuccessBackgroundHighlight;
   }
-  .btn-info.dropdown-toggle {
+  // .btn-info.dropdown-toggle {
+  .btn-info-dropdown-toggle {
     background-color: @btnInfoBackgroundHighlight;
   }
-  .btn-inverse.dropdown-toggle {
+  // .btn-inverse.dropdown-toggle {
+  .btn-inverse-dropdown-toggle {
     background-color: @btnInverseBackgroundHighlight;
   }
 }
@@ -208,7 +246,6 @@
     border-bottom-color: @white;
   }
 }
-
 
 
 // Vertical button groups
