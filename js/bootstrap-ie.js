@@ -206,26 +206,23 @@
       });
 
       // fix .btn-group.open
-      $('.btn-group', el).on('propertychange', function(e) {
-        var g = $(this);
-        if (g.data('changeClass')) {
-          g.removeData('changeClass');
-          return;
-        }
-        // dropdownWidthFix($('.dropdown-menu:visible', this));
-        if (g.hasClass('open') && !g.hasClass('btn-group-open')) {
-          // alert(g.attr('class'));
-          // g.off('propertychange');
-          g.addClass('btn-group-open');
-          g.data('changeClass', true);
-          // g.on('propertychange');
-        }
-        else if (!g.hasClass('open') && g.hasClass('btn-group-open')) {
-          // g.off('propertychange');
-          g.removeClass('btn-group-open');
-          g.data('changeClass', true);
-          // g.on('propertychange');
-        }
+      $.each(['btn-group', 'dropdown'], function (k,cls) {
+        $('.'+cls, el).on('propertychange', function(e) {
+          var g = $(this);
+          if (g.data('changeClass')) {
+            g.removeData('changeClass');
+            return;
+          }
+          // dropdownWidthFix($('.dropdown-menu:visible', this));
+          if (g.hasClass('open') && !g.hasClass(cls+'-open')) {
+            g.addClass(cls+'-open');
+            g.data('changeClass', true);
+          }
+          else if (!g.hasClass('open') && g.hasClass(cls+'-open')) {
+            g.removeClass(cls+'-open');
+            g.data('changeClass', true);
+          }
+        });
       });
     }
   }

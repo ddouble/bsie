@@ -139,6 +139,10 @@
 .nav-pills li {
   float: left;
 }
+.nav-tabs * li,
+.nav-pills * li {
+  float: none;
+}
 // .nav-tabs > li > a,
 // .nav-pills > li > a {
 .nav-tabs li a,
@@ -147,6 +151,12 @@
   padding-left: 12px;
   margin-right: 2px;
   line-height: 14px; // keeps the overall height an even number
+}
+.nav-tabs * li a,
+.nav-pills * li a {
+  padding:0;
+  margin:0;
+  line-height:auto;
 }
 
 // TABS
@@ -163,7 +173,10 @@
 
   *zoom:1;
   *background-color: @transparentIE6;
-  *filter:chroma(color=@transparentIE6);
+  // *filter:chroma(color=@transparentIE6);
+}
+.nav-tabs * li {
+  zoom:normal;
 }
 // Actual tabs (as links)
 // .nav-tabs > li > a {
@@ -184,6 +197,15 @@
     border-color: @grayLighter @grayLighter #ddd;
   }
 }
+.nav-tabs * li a {
+  padding:0;
+  line-height: auto;
+  border: none;
+  zoom:normal;
+  border:none;
+  background-color:inherit;
+  filter:none;
+}
 // Active state, and it's :hover to override normal :hover
 // .nav-tabs > .active > a,
 // .nav-tabs > .active > a:hover {
@@ -196,6 +218,12 @@
   border-bottom-color: transparent;
   cursor: default;
 }
+.nav-tabs * .active a,
+.nav-tabs * .active a:hover {
+  color:inherit;
+  background-color:inherit;
+  border:none;
+}
 
 
 // PILLS
@@ -204,7 +232,11 @@
 .nav-pills li {
   *zoom:1;
   *background-color: @transparentIE6;
-  *filter:chroma(color=@transparentIE6);
+  // *filter:chroma(color=@transparentIE6);
+}
+.nav-pills * li {
+  zoom:normal;
+  background-color: inherit;
 }
 
 // Links rendered as pills
@@ -218,9 +250,13 @@
 
   *display: inline;
   *zoom:1;
-  // *border: 1px solid @transparentIE6;
-  // *background-color: @transparentIE6;
-  // *filter:chroma(color=@transparentIE6);
+}
+
+.nav-pills * li a {
+  padding:0;
+  margin:0;
+  .border-radius(none);
+  zoom:normal;
 }
 
 // Active state
@@ -231,7 +267,11 @@
   color: @white;
   background-color: @linkColor;
 }
-
+.nav-pills * .active a,
+.nav-pills * .active a:hover {
+  color:inherit;
+  background-color:inherit;
+}
 
 
 // STACKED NAV
@@ -279,6 +319,43 @@
 
 .nav-tabs .dropdown-menu {
   .border-radius(0 0 6px 6px); // remove the top rounded corners here since there is a hard edge above the menu
+
+  // Dividers (basically an hr) within the dropdown
+  .divider {
+    .nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
+  }
+
+  // Links within the dropdown menu
+  li a {
+    display: block;
+
+    /* fix for IE6 BFC */
+    *zoom:1;
+
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+    white-space: nowrap;
+  }
+
+  li a:hover,
+  li a:focus,
+  .dropdown-submenu:hover a,
+  .dropdown-submenu-hover a /* fix for IE6 li:hover */ {
+    text-decoration: none;
+    color: @dropdownLinkColorHover;
+    #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+  }
+  /* fix for IE6 li:hover */
+  .dropdown-submenu-hover * a {
+    *color: inherit;
+    *background-color: @transparentIE6;
+    *filter: none;
+    *filter:chroma(color=@transparentIE6);
+    *background-image: none;
+  }
 }
 .nav-pills .dropdown-menu {
   .border-radius(6px); // make rounded corners match the pills
@@ -330,17 +407,23 @@
 // -------------------------
 .nav-tabs .open .dropdown-toggle,
 .nav-pills .open .dropdown-toggle,
-.nav > li.dropdown.open.active > a:hover {
+// .nav > li.dropdown.open.active > a:hover {
+.nav li.dropdown-open.active a:hover {
   color: @white;
   background-color: @grayLight;
   border-color: @grayLight;
 }
-.nav li.dropdown.open .caret,
-.nav li.dropdown.open.active .caret,
-.nav li.dropdown.open a:hover .caret {
+// .nav li.dropdown.open .caret,
+// .nav li.dropdown.open.active .caret,
+// .nav li.dropdown.open a:hover .caret {
+.nav li.dropdown-open .caret,
+.nav li.dropdown-open.active .caret,
+.nav li.dropdown-open a:hover .caret {
   border-top-color: @white;
   border-bottom-color: @white;
   .opacity(100);
+
+  .arrow-down(8px, 4px, @white);
 }
 
 // Dropdowns in stacked tabs
