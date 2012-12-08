@@ -201,18 +201,33 @@
 // PILLS
 // -----
 
+.nav-pills li {
+  *zoom:1;
+  *background-color: @transparentIE6;
+  *filter:chroma(color=@transparentIE6);
+}
+
 // Links rendered as pills
-.nav-pills > li > a {
+// .nav-pills > li > a {
+.nav-pills li a {
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top: 2px;
   margin-bottom: 2px;
   .border-radius(5px);
+
+  *display: inline;
+  *zoom:1;
+  // *border: 1px solid @transparentIE6;
+  // *background-color: @transparentIE6;
+  // *filter:chroma(color=@transparentIE6);
 }
 
 // Active state
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover {
+// .nav-pills > .active > a,
+// .nav-pills > .active > a:hover {
+.nav-pills .active a,
+.nav-pills .active a:hover {
   color: @white;
   background-color: @linkColor;
 }
