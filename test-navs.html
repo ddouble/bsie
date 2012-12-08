@@ -92,7 +92,43 @@ ul.tabbernav li.tabberactive a:hover
 }
 
 
+.nav .dropdown-toggle{
+  padding-top:10px;
+  padding-bottom:6px;
+}
+
+.nav .dropdown-toggle .caret {
+  padding: 5px 0 5px;
+}
+
+
 </style>
+
+
+  <ul class="nav nav-pills">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Messages</a></li>
+  </ul>
+
+  <div id="nav" class="tabbable" style="margin-bottom: 18px;">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Help</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
 
 <ul class="nav1 nav-tabs1 tabbernav"> 
   <li class="active1 tabberactive" style=""><a href="javascript:void(null);" title="Features">Features</a></li>
@@ -102,35 +138,6 @@ ul.tabbernav li.tabberactive a:hover
   <li class=""><a href="javascript:void(null);" title="Advanced">Advanced</a></li>
   <li class=""><a href="javascript:void(null);" title="Download">Download</a></li>
 </ul>
-
-<br /><br />
-
-<ul class="nav nav-pills">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Profile</a></li>
-    <li><a href="#">Messages</a></li>
-  </ul>
-
-<br /><br />
-  <div id="nav" class="tabbable" style="margin-bottom: 18px;">
-    <ul class="nav nav-tabs tabbernav1" style="">
-      <li class="active tabberactive1" style=""><a href="#tab1" data-toggle="tab" style="">Section 1</a></li>
-      <li class=""><a style="" href="#tab2" data-toggle="tab">Section 2</a></li>
-      <li class=""><a href="#tab3" data-toggle="tab">Section 3</a></li>
-      <!-- <li style="display:block;margin-top:-3px;float:none;clear:both;height:0;line-height: 0;font-size:0;"> </li> -->
-    </ul>
-    <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
-      <div class="tab-pane active" id="tab1">
-        <p>I'm in Section 1.</p>
-      </div>
-      <div class="tab-pane" id="tab2">
-        <p>Howdy, I'm in Section 2.</p>
-      </div>
-      <div class="tab-pane" id="tab3">
-        <p>What up girl, this is Section 3.</p>
-      </div>
-    </div>
-  </div>
 </div>
 
     <p style="height:1000px;"></p>

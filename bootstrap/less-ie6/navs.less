@@ -286,11 +286,18 @@
 
 // Default dropdown links
 // -------------------------
+.nav .dropdown-toggle{
+  *padding-top:10px;
+  *padding-bottom:6px;
+}
 // Make carets use linkColor to start
 .nav .dropdown-toggle .caret {
   border-top-color: @linkColor;
   border-bottom-color: @linkColor;
   margin-top: 6px;
+
+  .arrow-down(8px, 4px, @linkColor);
+  *padding: 5px 0 5px;
 }
 .nav .dropdown-toggle:hover .caret {
   border-top-color: @linkColorHover;
@@ -314,7 +321,8 @@
 
 // Active:hover dropdown links
 // -------------------------
-.nav > .dropdown.active > a:hover {
+// .nav > .dropdown.active > a:hover {
+.nav .dropdown.active a:hover {
   cursor: pointer;
 }
 
