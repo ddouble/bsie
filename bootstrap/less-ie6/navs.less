@@ -359,11 +359,48 @@
 }
 .nav-pills .dropdown-menu {
   .border-radius(6px); // make rounded corners match the pills
+
+  // Dividers (basically an hr) within the dropdown
+  .divider {
+    .nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
+  }
+
+  // Links within the dropdown menu
+  li a {
+    display: block;
+
+    /* fix for IE6 BFC */
+    *zoom:1;
+
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+    white-space: nowrap;
+  }
+
+  li a:hover,
+  li a:focus,
+  .dropdown-submenu:hover a,
+  .dropdown-submenu-hover a /* fix for IE6 li:hover */ {
+    text-decoration: none;
+    color: @dropdownLinkColorHover;
+    #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+  }
+  /* fix for IE6 li:hover */
+  .dropdown-submenu-hover * a {
+    *color: inherit;
+    *background-color: @transparentIE6;
+    *filter: none;
+    *filter:chroma(color=@transparentIE6);
+    *background-image: none;
+  }
 }
 
 // Default dropdown links
 // -------------------------
-.nav .dropdown-toggle{
+.nav-tabs .dropdown-toggle{
   *padding-top:10px;
   *padding-bottom:12px;
 }
