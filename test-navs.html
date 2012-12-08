@@ -6,7 +6,7 @@
   <script src="less.min.js" type="text/javascript"></script>
  -->
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-<!--   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">-->
+  <!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css"> -->
 
   <!--[if lte IE 6]>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
@@ -33,6 +33,96 @@
       <li><a href="#">Help</a></li>
     </ul>
   </div> <!-- /well -->
+
+  <br />
+
+<style>
+
+/**
+ * TAB
+ */
+/* root element for tabs  */
+ul.tabbernav
+{
+ margin:0;
+ /*padding: 3px 0;*/
+ border-bottom: 1px solid #778;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid gray;
+ border-bottom: none;
+ background: #DDE;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #448; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ background: #AAE;
+ border-color: #227;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #fff;
+ border: 1px solid red;
+ border-bottom: 1px solid #fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+
+</style>
+
+<ul class="nav1 nav-tabs1 tabbernav"> 
+  <li class="active1 tabberactive" style=""><a href="javascript:void(null);" title="Features">Features</a></li>
+  <li class=""><a href="javascript:void(null);" title="Step 1">Step 1</a></li>
+  <li class=""><a href="javascript:void(null);" title="2">2</a></li>
+  <li class=""><a href="javascript:void(null);" title="3">3</a></li>
+  <li class=""><a href="javascript:void(null);" title="Advanced">Advanced</a></li>
+  <li class=""><a href="javascript:void(null);" title="Download">Download</a></li>
+</ul>
+
+<br /><br />
+  <div id="nav" class="tabbable" style="margin-bottom: 18px;">
+    <ul class="nav nav-tabs tabbernav1" style="">
+      <li class="active tabberactive1" style=""><a href="#tab1" data-toggle="tab" style="">Section 1</a></li>
+      <li class=""><a style="" href="#tab2" data-toggle="tab">Section 2</a></li>
+      <li class=""><a href="#tab3" data-toggle="tab">Section 3</a></li>
+      <!-- <li style="display:block;margin-top:-3px;float:none;clear:both;height:0;line-height: 0;font-size:0;"> </li> -->
+    </ul>
+    <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
+      <div class="tab-pane active" id="tab1">
+        <p>I'm in Section 1.</p>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <p>Howdy, I'm in Section 2.</p>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <p>What up girl, this is Section 3.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
     <p style="height:1000px;"></p>
