@@ -5,3 +5,76 @@ bsie MANUAL
 1. IE6    call bootstrapIE6() for every new html snippet (for ajax html content)
 2. IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example: *width:180px;
 3. 
+
+---------------------
+IE6-7 hack
+---------------------
+1.IE6 hack
+  _zoom:1;
+
+2.IE6-7 hack
+  *zoom:1;
+
+---------------------
+IE6 bug fix tip
+---------------------
+1. hasLayout (clear float):
+  .container 
+  { 
+    zoom:1; 
+  }
+
+  other css property which will trigger hasLayout:
+  
+  position:   absolute
+  float:      left | right
+  display:    inline-block
+  width:      except 'auto'
+  height:     except 'auto'
+  zoom:       except 'normal'
+  overflow:   hidden | scroll | auto
+  overflow-x/-y: hidden | scroll | auto
+  position:   fixed
+  min-width:  any value
+  max-width:  except 'none'
+  min-height: any value
+  max-height:  except 'none'
+  writing-mode: tb-rl   /* only for MS */
+
+  
+  following css property will clear hasLayout:
+  
+  width:        auto;
+  height:       auto;
+  max-width:    none;   /* IE7 */
+  max-height:   none;   /* IE7 */
+  position:     static;
+  float:        none;
+  overflow:     visible;
+  zoom:         normal;
+  writing-mode: lr-t;
+
+
+  In one selector, following css will not set hasLayout=false:
+  .element {
+    display:inline-block;
+    display:inline;
+  }
+
+
+
+2. inline-block:
+  .container 
+  { 
+    zoom:1; 
+    display:inline;
+  }
+
+3. transparent color:
+  .element
+  {
+    border-color:pink/* rarely used color */;
+    filter:chroma(color:pink);
+  }
+  * notice: the filter will cause disappeared of absolute element which in relative container
+
