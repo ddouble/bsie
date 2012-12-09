@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+<!--   <link rel="stylesheet/less" type="text/css" href="bootstrap/less/bootstrap.less">
+  <script src="less.min.js" type="text/javascript"></script>
+ -->
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+  <!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css"> -->
+
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
+  <![endif]-->
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+  <![endif]-->
+
+</head>
+<body style="padding:50px 10px;">
+
+
+<style>
+
+</style>
+
+
+<div style="">
+
+  <form class="bs-docs-example form-horizontal">
+    <div class="control-group warning">
+      <label class="control-label" for="inputWarning">Input with warning</label>
+      <div class="controls">
+        <input type="text" id="inputWarning">
+        <span class="help-inline">Something may have gone wrong</span>
+      </div>
+    </div>
+    <div class="control-group error">
+      <label class="control-label" for="inputError">Input with error</label>
+      <div class="controls">
+        <input type="text" id="inputError">
+        <span class="help-inline">Please correct the error</span>
+      </div>
+    </div>
+    <div class="control-group info">
+      <label class="control-label" for="inputInfo">Input with info</label>
+      <div class="controls">
+        <input type="text" id="inputInfo">
+        <span class="help-inline">Username is taken</span>
+      </div>
+    </div>
+    <div class="control-group success">
+      <label class="control-label" for="inputSuccess">Input with success</label>
+      <div class="controls">
+        <input type="text" id="inputSuccess">
+        <span class="help-inline">Woohoo!</span>
+      </div>
+    </div>
+  </form>
+
+<form class="bs-docs-example">
+
+
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn">Cancel</button>
+    <button type="button" class="btn disinput">disable first input</button>
+    <button type="button" class="btn roinput">readonly first input</button>
+  </div>
+
+  <div class="input-prepend input-append">
+    <div class="btn-group">
+      <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+    <input class="span2 uneditable-input" id="appendedPrependedDropdownButton" type="text" value="hello world" readonly>
+    <div class="btn-group">
+      <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+  </div>
+
+  <div class="input-append">
+    <input class="span2" id="appendedInputButtons" type="text">
+    <button class="btn" type="button">Search</button>
+    <button class="btn" type="button">Options</button>
+  </div>
+
+  <div class="input-append">
+    <input class="span2" id="appendedInputButton" type="text">
+    <button class="btn" type="button">Go!</button>
+  </div>
+
+  <div class="input-prepend input-append">
+    <span class="add-on">$</span>
+    <input class="span2" id="appendedPrependedInput" type="text">
+    <span class="add-on">.00</span>
+  </div>
+
+  <div class="input-prepend">
+    <span class="add-on">@</span>
+    <input class="span2" id="prependedInput" type="text" placeholder="Username">
+  </div>
+  <br>
+  <div class="input-append">
+    <input class="span2" id="appendedInput" type="text">
+    <span class="add-on">.00</span>
+  </div>
+</form>
+
+
+<form class="bs-docs-example">
+  <label class="checkbox inline">
+    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+  </label>
+  <label class="checkbox inline">
+    <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+  </label>
+  <label class="checkbox inline">
+    <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+  </label>
+</form>
+
+<form class="bs-docs-example form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Email</label>
+    <div class="controls">
+      <select multiple="multiple">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select> 
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Email</label>
+    <div class="controls">
+      <input type="text" class="input-xxlarge" disabled id="inputEmail" placeholder="Email">
+      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword">Password</label>
+    <div class="controls">
+      <input type="password" id="inputPassword" placeholder="Password">
+      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox" disabled> Remember me
+      </label>
+      <button type="submit" class="btn">Sign in</button>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <label class="checkbox">
+        <input type="checkbox"> Remember me
+      </label>
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn">Cancel</button>
+  </div>
+</form>
+
+<form class="bs-docs-example form-inline">
+  <input type="text" class="input-small" placeholder="Email">
+  <input type="password" class="input-small" placeholder="Password">
+  <label class="checkbox">
+    <input type="checkbox"> Remember me
+  </label>
+  <button type="submit" class="btn">Sign in</button>
+</form>
+
+
+<form class="bs-docs-example">
+  <fieldset>
+    <legend>Legend</legend>
+    <label>Label name</label>
+    <input type="text" placeholder="Type something…">
+    <span class="help-block">Example block-level help text here.</span>
+    <label class="checkbox">
+      <input type="checkbox"> Check me out
+    </label>
+    <label class="radio">
+      <input type="radio"> Check me out
+    </label>
+    <button type="submit" class="btn">Submit</button>
+  </fieldset>
+</form>
+</div>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <form class="navbar-form pull-left">
+      <input type="text" class="span2">
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</div>
+
+    <p style="height:1000px;"></p>
+
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/bootstrap-ie.js"></script>
+  <script type="text/javascript">
+  (function($) {
+    $(document).ready(function () {
+      $('.btn.disinput').click(function () {
+        var input = $('input[type="text"]:eq(0)');
+        // input.css('border','5px solid #000');
+        if (input.attr('disabled')) {
+          input.removeAttr('disabled');
+        }
+        else {
+          input.attr('disabled','disabled');
+        }
+      });
+
+      $('.btn.roinput').click(function () {
+        var input = $('input[type="text"]:eq(0)');
+        // input.css('border','5px solid #000');
+        if (input.attr('readonly')) {
+          alert('remove');
+          input.removeAttr('readonly');
+        }
+        else {
+          input.attr('readonly','readonly');
+        }
+      });
+    });
+  })(jQuery);
+
+  </script>
+</body>
+</html>

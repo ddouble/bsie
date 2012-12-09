@@ -29,6 +29,8 @@ legend {
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 
+  *margin-left:-7px;
+
   // Small
   small {
     font-size: @baseLineHeight * .75;
@@ -61,22 +63,36 @@ label {
 // -------------------------
 
 // Shared size and type resets
+// input[type="text"],
+// input[type="password"],
+// input[type="datetime"],
+// input[type="datetime-local"],
+// input[type="date"],
+// input[type="month"],
+// input[type="time"],
+// input[type="week"],
+// input[type="number"],
+// input[type="email"],
+// input[type="url"],
+// input[type="search"],
+// input[type="tel"],
+// input[type="color"],
 select,
 textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
+.input-text,
+.input-password,
+.input-datetime,
+.input-datetime-local,
+.input-date,
+.input-month,
+.input-time,
+.input-week,
+.input-number,
+.input-email,
+.input-url,
+.input-search,
+.input-tel,
+.input-color,
 .uneditable-input {
   display: inline-block;
   height: @baseLineHeight;
@@ -101,21 +117,35 @@ textarea {
   height: auto;
 }
 // Everything else
+// input[type="text"],
+// input[type="password"],
+// input[type="datetime"],
+// input[type="datetime-local"],
+// input[type="date"],
+// input[type="month"],
+// input[type="time"],
+// input[type="week"],
+// input[type="number"],
+// input[type="email"],
+// input[type="url"],
+// input[type="search"],
+// input[type="tel"],
+// input[type="color"],
 textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
+.input-text,
+.input-password,
+.input-datetime,
+.input-datetime-local,
+.input-date,
+.input-month,
+.input-time,
+.input-week,
+.input-number,
+.input-email,
+.input-url,
+.input-search,
+.input-tel,
+.input-color,
 .uneditable-input {
   background-color: @inputBackground;
   border: 1px solid @inputBorder;
@@ -142,13 +172,20 @@ input[type="checkbox"] {
 }
 
 // Reset width of input images, buttons, radios, checkboxes
-input[type="file"],
-input[type="image"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="radio"],
-input[type="checkbox"] {
+// input[type="file"],
+// input[type="image"],
+// input[type="submit"],
+// input[type="reset"],
+// input[type="button"],
+// input[type="radio"],
+// input[type="checkbox"] {
+.input-file,
+.input-image,
+.input-submit,
+.input-reset,
+.input-button,
+.input-radio,
+.input-checkbox {
   width: auto; // Override of generic input selector
 }
 
@@ -168,8 +205,10 @@ select {
 }
 
 // Make multiple select elements height not fixed
-select[multiple],
-select[size] {
+// select[multiple],
+// select[size] {
+.select-multiple,
+.select-size {
   height: auto;
 }
 
@@ -226,6 +265,7 @@ textarea {
 .checkbox {
   min-height: @baseLineHeight; // clear the floating input if there is no label text
   padding-left: 20px;
+  _padding-left: 0;
 }
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
@@ -242,14 +282,18 @@ textarea {
 // Radios and checkboxes on same line
 // TODO v3: Convert .inline to .control-inline
 .radio.inline,
-.checkbox.inline {
+.checkbox.inline,
+.radio-inline,
+.checkbox-inline {
   display: inline-block;
   padding-top: 5px;
   margin-bottom: 0;
   vertical-align: middle;
 }
 .radio.inline + .radio.inline,
-.checkbox.inline + .checkbox.inline {
+.checkbox.inline + .checkbox.inline,
+.radio-inline
+.checkbox-inline {
   margin-left: 10px; // space out consecutive inline controls
 }
 
@@ -325,20 +369,30 @@ textarea[class*="span"],
 // --------------
 
 // Disabled and read-only inputs
-input[disabled],
-select[disabled],
-textarea[disabled],
-input[readonly],
-select[readonly],
-textarea[readonly] {
+// input[disabled],
+// select[disabled],
+// textarea[disabled],
+// input[readonly],
+// select[readonly],
+// textarea[readonly] {
+.input-disabled,
+.select-disabled,
+.textarea-disabled,
+.input-readonly,
+.select-readonly,
+.textarea-readonly {
   cursor: not-allowed;
   background-color: @inputDisabledBackground;
 }
 // Explicitly reset the colors here
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"][readonly],
-input[type="checkbox"][readonly] {
+// input[type="radio"][disabled],
+// input[type="checkbox"][disabled],
+// input[type="radio"][readonly],
+// input[type="checkbox"][readonly] {
+.radio-disabled,
+.checkbox-disabled,
+.radio-readonly,
+.checkbox-readonly {
   background-color: transparent;
 }
 
@@ -349,19 +403,23 @@ input[type="checkbox"][readonly] {
 // --------------------------
 
 // Warning
-.control-group.warning {
+// .control-group.warning {
+.control-group-warning {
   .formFieldState(@warningText, @warningText, @warningBackground);
 }
 // Error
-.control-group.error {
+// .control-group.error {
+.control-group-error {
   .formFieldState(@errorText, @errorText, @errorBackground);
 }
 // Success
-.control-group.success {
+// .control-group.success {
+.control-group-success {
   .formFieldState(@successText, @successText, @successBackground);
 }
 // Success
-.control-group.info {
+// .control-group.info {
+.control-group-info {
   .formFieldState(@infoText, @infoText, @infoBackground);
 }
 
@@ -461,11 +519,14 @@ select:focus:required:invalid {
     text-shadow: 0 1px 0 @white;
     background-color: @grayLighter;
     border: 1px solid #ccc;
+
   }
   .add-on,
   .btn {
     vertical-align: top;
     .border-radius(0);
+    
+    *margin-top: 1px;
   }
   .active {
     background-color: lighten(@green, 30);
@@ -477,6 +538,7 @@ select:focus:required:invalid {
   .add-on,
   .btn {
     margin-right: -1px;
+    *margin-right: -2px;
   }
   .add-on:first-child,
   .btn:first-child {
@@ -498,6 +560,7 @@ select:focus:required:invalid {
   .btn,
   .btn-group {
     margin-left: -1px;
+    *margin-left: -2px;
   }
   .add-on:last-child,
   .btn:last-child {
@@ -660,10 +723,12 @@ legend + .control-group {
     *padding-left: 20px;
     margin-left: @horizontalComponentOffset;
     *margin-left: 0;
-    &:first-child {
+    // &:first-child {
+    &-first-child {
       *padding-left: @horizontalComponentOffset;
     }
   }
+
   // Remove bottom margin on block level help text since that's accounted for on .control-group
   .help-block {
     margin-bottom: 0;

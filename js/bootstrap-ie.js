@@ -121,7 +121,7 @@
       for (var i in lis) {
         var child = 'li.' + lis[i];
         var hover = lis[i] + '-hover';
-        $('ul').on('mouseenter', child, function () {
+        $('ul', el).on('mouseenter', child, function () {
           $(this).addClass(hover);
         }).on('mouseleave', child, function () {
           $(this).removeClass(hover);
@@ -129,10 +129,10 @@
       }
 
       /// fix :after selector -- dropdown-submenu > a:after
-      $('.dropdown-submenu > a').after('<span class="dropdown-tri"></span>');
+      $('.dropdown-submenu > a', el).after('<span class="dropdown-tri"></span>');
 
       /// fix multi class selector -- .dropdown-submenu.pull-left
-      $('.dropdown-submenu.pull-left').removeClass('pull-left').addClass('dropdown-submenu-pull-left');
+      $('.dropdown-submenu.pull-left', el).removeClass('pull-left').addClass('dropdown-submenu-pull-left');
       // $('.navbar .nav.pull-right').removeClass('pull-right').addClass('nav-pull-right');
 
       /// fix ul li 100% width bug, set ul width to max width of it's sub li
@@ -146,11 +146,11 @@
       //-------------
       var btnColorCls = ['btn-primary','btn-warning','btn-danger','btn-success','btn-info','btn-inverse'];
       var btnSizeCls = ['btn-mini','btn-small','btn-large'];
-      $('.btn-group').parent().find('.btn-group:eq(0)').addClass('btn-group-first');
-      $('.btn').parent().find('.btn:eq(0)').addClass('btn-first');
+      $('.btn-group', el).parent().find('.btn-group:eq(0)').addClass('btn-group-first');
+      $('.btn', el).parent().find('.btn:eq(0)').addClass('btn-first');
 
-      // fix for IE6 not support button:hover
-      $('body').on('mouseenter', '.btn', function () {
+      // fix button:hover
+      $('body', el).on('mouseenter', '.btn', function () {
         var btn = $(this);
         var hover = 'btn-hover';
         btn.data('ie6hover',hover);
@@ -171,7 +171,7 @@
 
       // fix .btn.dropdown-toggle, .btn-primary.dropdown-toggle ...
       // fix .btn.dropdown-toggle, .btn-small.dropdown-toggle ...
-      $('.btn.dropdown-toggle').each(function () {
+      $('.btn.dropdown-toggle', el).each(function () {
         var btn = $(this);
         var ddt = 'btn-dropdown-toggle';
         btn.addClass(ddt);
@@ -193,12 +193,10 @@
           }
         });
         if (ddt) btn.addClass(ddt);
-
       });
 
-      // Split button dropdown background color
-
-      $('.btn + .btn.dropdown-toggle').each(function () {
+      // fix split button dropdown toggle background color
+      $('.btn + .btn.dropdown-toggle', el).each(function () {
         var btn = $(this);
         var c = btn.css('background-color');
         // alert($.eb.color.darken(c, .2));
@@ -225,15 +223,124 @@
         });
       });
 
+      // fix .btn.disabled selector
+      $('.btn.disabled', el).addClass('btn-disabled');
+
+      $.each(['btn'], function (k,cls) {
+        $('.'+cls, el).on('propertychange', function(e) {
+          var g = $(this);
+          if (g.data('chgDisabled')) {
+            g.removeData('chgDisabled');
+            return;
+          }
+          // dropdownWidthFix($('.dropdown-menu:visible', this));
+          if (g.hasClass('disabled') && !g.hasClass(cls+'-disabled')) {
+            g.addClass(cls+'-disabled');
+            g.data('chgDisabled', true);
+          }
+          else if (!g.hasClass('disabled') && g.hasClass(cls+'-disabled')) {
+            g.removeClass(cls+'-disabled');
+            g.data('chgDisabled', true);
+          }
+        });
+      });
+
 
       //-------------
       // table
       //-------------
-      $('table.table-hover').on('mouseenter', 'tr', function () {
+
+      // fix table-hover effect
+      $('table.table-hover', el).on('mouseenter', 'tr', function () {
         $(this).addClass('tr-hover');
       }).on('mouseleave', 'tr', function () {
         $(this).removeClass('tr-hover');
       });
+
+      //-------------
+      // form
+      //-------------
+
+      // fix input[type=xxx] selector
+      $('input[type="file"], input[type="image"], input[type="submit"], input[type="reset"], input[type="button"], input[type="radio"], input[type="checkbox"], input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]', el).each(function () {
+        var input = $(this);
+        input.addClass('input-'+input.attr('type'));
+      });
+
+      // fix form-horizontal controls margin-left
+      $('.form-horizontal .controls:first-child', el).addClass('controls-first-child');
+
+      // fix .checkbox.inline
+      $('.checkbox.inline', el).addClass('checkbox-inline');
+      $('.radio.inline', el).addClass('radio-inline');
+
+      // fix select[multiple], select[size]
+      $('select[multiple]', el).addClass('select-multiple');
+      $('select[size]', el).addClass('select-size');
+
+      // fix tag[disabled]
+      $('input[disabled], select[disabled], textarea[disabled]', el).each(function () {
+        var self = $(this);
+        self.addClass(self[0].tagName.toLowerCase()+'-disabled');
+      });
+
+//       $('input,select,textarea', el).on('propertychange', function() {
+//         var self = $(this);
+//         if (self.data('chgDisabled')) return;
+
+//         var cls = self[0].tagName.toLowerCase();
+// // alert(self.attr('disabled'));
+//         if (self.attr('disabled') && !self.hasClass(cls+'-disabled')) {
+//           // alert('abc');
+//           self.addClass(cls+'-disabled');
+//           self.data('chgDisabled', true);
+//         }
+//         else if (!self.attr('disabled') && self.hasClass(cls+'-disabled')) {
+//           self.removeClass(cls+'-disabled');
+//           self.data('chgDisabled', true);
+//         }
+//       });
+
+//       $('input,select,textarea', el).on('propertychange', function() {
+//         var self = $(this);
+//         if (self.data('chgReadonly')) return;
+
+//         var cls = self[0].tagName.toLowerCase();
+
+//         if (self.attr('readonly') && !self.hasClass(cls+'-readonly')) {
+//           self.addClass(cls+'-readonly');
+//           self.data('chgReadonly', true);
+//         }
+//         else if (typeof self.attr('readonly') == 'undefined' && self.hasClass(cls+'-readonly')) {
+//           self.removeClass(cls+'-readonly');
+//           self.data('chgReadonly', true);
+//         }
+//       });
+
+      // fix tag[readonly]
+      $('input[readonly], select[readonly], textarea[readonly]', el).each(function () {
+        var self = $(this);
+        self.addClass(self[0].tagName.toLowerCase()+'-readonly');
+      });
+
+      // fix input[type=xxx][disabled]
+      $('input[type="radio"][disabled], input[type="checkbox"][disabled]', el).each(function () {
+        var self = $(this);
+        self.addClass(self.attr('type').toLowerCase()+'-disabled');
+      });
+
+      // fix input[type=xxx][readonly]
+      $('input[type="radio"][readonly], input[type="checkbox"][readonly]', el).each(function () {
+        var self = $(this);
+        self.addClass(self.attr('type').toLowerCase()+'-readonly');
+      });
+
+      // fix.control-group.warning ...
+      var ctlGrpTypeCls = ['warning','success','error','info'];
+      $.each(ctlGrpTypeCls, function (k,v) {
+        $('.control-group.'+v, el).addClass('control-group-'+v);
+      });
+
 
     }
   }

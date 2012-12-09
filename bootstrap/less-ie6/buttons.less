@@ -57,12 +57,29 @@
 
   // Disabled state
   &.disabled,
-  &[disabled] {
+  &[disabled],
+  &-disabled {
     cursor: default;
     background-color: darken(@white, 10%);
     background-image: none;
     .opacity(65);
     .box-shadow(none);
+  }
+
+  _padding-top: 3px;
+  _padding-bottom: 3px;
+
+  &.btn-large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+  &.btn-small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+  &.btn-mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
   }
 
 }
@@ -260,4 +277,13 @@ input[type="submit"].btn {
 .btn-link[disabled]:hover {
   color: @grayDark;
   text-decoration: none;
+}
+
+
+.btn-disabled {
+  cursor: default;
+  background-image: none;
+  .opacity(65);
+  filter:alpha(opacity=35);
+  .box-shadow(none);
 }
