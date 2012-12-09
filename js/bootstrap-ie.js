@@ -227,7 +227,7 @@
       $('.btn.disabled', el).addClass('btn-disabled');
 
       $.each(['btn'], function (k,cls) {
-        $('.'+cls, el).on('propertychange', function(e) {
+        $('button.'+cls, el).on('propertychange', function(e) {
           var g = $(this);
           if (g.data('chgDisabled')) {
             g.removeData('chgDisabled');
