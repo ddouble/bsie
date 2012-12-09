@@ -224,6 +224,17 @@
           }
         });
       });
+
+
+      //-------------
+      // table
+      //-------------
+      $('table.table-hover').on('mouseenter', 'tr', function () {
+        $(this).addClass('tr-hover');
+      }).on('mouseleave', 'tr', function () {
+        $(this).removeClass('tr-hover');
+      });
+
     }
   }
   $.bootstrapIE6 = bootstrapIE6;
