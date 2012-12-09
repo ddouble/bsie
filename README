@@ -4,7 +4,7 @@ bsie MANUAL
 
 1. IE6    call bootstrapIE6() for every new html snippet (for ajax html content)
 2. IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example: *width:180px;
-3. 
+3. IE6    currently not support nested tabs control, because IE6 don't support child css selector 
 
 ---------------------
 IE6-7 hack

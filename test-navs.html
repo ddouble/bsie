@@ -103,12 +103,37 @@ ul.tabbernav li.tabberactive a:hover
 
 */
 
+.nav-tabs .active a {
+
+}
+
+
 </style>
+
+
+<div class="tabbable tabs-below">
+    <div class="tab-content">
+      <div class="tab-pane active" id="A">
+        <p>I'm in Section A.</p>
+      </div>
+      <div class="tab-pane" id="B">
+        <p>Howdy, I'm in Section B.</p>
+      </div>
+      <div class="tab-pane" id="C">
+        <p>What up girl, this is Section C.</p>
+      </div>
+    </div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#A" data-toggle="tab">Section 1</a></li>
+      <li class=""><a href="#B" data-toggle="tab">Section 2</a></li>
+      <li class=""><a href="#C" data-toggle="tab">Section 3</a></li>
+    </ul>
+  </div>
 
 
   <ul class="nav nav-pills">
     <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Profile</a></li>
+    <li class="disabled"><a href="#">Profile</a></li>
     <li><a href="#">Messages</a></li>
 
       <li class="dropdown">

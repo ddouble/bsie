@@ -172,7 +172,8 @@
   margin-bottom: -1px;
 
   *zoom:1;
-  *background-color: @transparentIE6;
+  *background-color: @white;
+  // *background-color: @transparentIE6;
   // *filter:chroma(color=@transparentIE6);
 }
 .nav-tabs * li {
@@ -231,7 +232,8 @@
 
 .nav-pills li {
   *zoom:1;
-  *background-color: @transparentIE6;
+  *background-color: @white;
+  // *background-color: @transparentIE6;
   // *filter:chroma(color=@transparentIE6);
 }
 .nav-pills * li {
@@ -400,9 +402,14 @@
 
 // Default dropdown links
 // -------------------------
-.nav-tabs .dropdown-toggle{
+.nav-tabs .dropdown-toggle {
   *padding-top:10px;
   *padding-bottom:12px;
+}
+.nav-pills .dropdown-toggle {
+  *padding-top:8px;
+  *padding-bottom:6px;
+  *margin-bottom: 3px;
 }
 // Make carets use linkColor to start
 .nav .dropdown-toggle .caret {
@@ -503,8 +510,9 @@
   display: none;
 
   *zoom:1;
-  *background-color: @transparentIE6;
-  *filter:chroma(color=@transparentIE6);
+  *background-color: @white;
+  // *background-color: @transparentIE6;
+  // *filter:chroma(color=@transparentIE6);
 
 }
 // .tab-content > .active,
@@ -513,28 +521,55 @@
 .pill-content .active {
   display: block;
 }
+.tab-content * .active,
+.pill-content * .active {
+  // display: inline;
+}
 
 
 // BOTTOM
 // ------
 
-.tabs-below > .nav-tabs {
+// .tabs-below > .nav-tabs {
+.tabs-below .nav-tabs {
   border-top: 1px solid #ddd;
 }
-.tabs-below > .nav-tabs > li {
+.tabs-below * .nav-tabs {
+  border-top: none;
+}
+// .tabs-below > .nav-tabs > li {
+.tabs-below .nav-tabs li {
   margin-top: -1px;
   margin-bottom: 0;
 }
-.tabs-below > .nav-tabs > li > a {
+.tabs-below * .nav-tabs li {
+  margin-top: 0;
+  margin-bottom: -1px;
+}
+// .tabs-below > .nav-tabs > li > a {
+.tabs-below .nav-tabs li a {
   .border-radius(0 0 4px 4px);
   &:hover {
-    border-bottom-color: transparent;
+    border-bottom-color: #fff;
     border-top-color: #ddd;
   }
 }
-.tabs-below > .nav-tabs > .active > a,
-.tabs-below > .nav-tabs > .active > a:hover {
-  border-color: transparent #ddd #ddd #ddd;
+.tabs-below * .nav-tabs li a {
+  .border-radius(none);
+  &:hover {
+    border-bottom-color: inherit;
+    border-top-color: inherit;
+  }
+}
+// .tabs-below > .nav-tabs > .active > a,
+// .tabs-below > .nav-tabs > .active > a:hover {
+.tabs-below .nav-tabs .active a,
+.tabs-below .nav-tabs .active a:hover {
+  border-color: transparent #999 #999 #999;
+}
+.tabs-below * .nav-tabs .active a,
+.tabs-below * .nav-tabs .active a:hover {
+  border-color: inherit;
 }
 
 // LEFT & RIGHT
@@ -596,12 +631,22 @@
 // ---------------
 
 // Gray out text
-.nav > .disabled > a {
+// .nav > .disabled > a {
+.nav .disabled a {
   color: @grayLight;
 }
+.nav * .disabled a {
+  color: inherit;
+}
 // Nuke hover effects
-.nav > .disabled > a:hover {
+// .nav > .disabled > a:hover {
+.nav .disabled a:hover {
   text-decoration: none;
   background-color: transparent;
+  cursor: default;
+}
+.nav * .disabled a:hover {
+  text-decoration: underline;
+  background-color: inherit;
   cursor: default;
 }
