@@ -114,6 +114,11 @@
       el = el || $('html');
 
       //-------------
+      // GRID
+      //-------------
+      $('.row-fluid [class*="span"]:first-child, .row [class*="span"]:first-child').addClass('span-first-child');
+
+      //-------------
       // dropdown 
       //-------------
       // fix for IE6 not support li:hover

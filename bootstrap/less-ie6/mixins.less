@@ -562,7 +562,7 @@
   .core (@gridColumnWidth, @gridGutterWidth) {
 
     .spanX (@index) when (@index > 0) {
-      (~".span@{index}") { .span(@index); }
+      (~".span@{index}") { .span-grid(@index); }
       .spanX(@index - 1);
     }
     .spanX (0) {}
@@ -579,6 +579,14 @@
 
     .span (@columns) {
       width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+    }
+
+    .span-grid (@columns) {
+      float: left;
+      min-height: 1px; // prevent collapsing columns
+      margin-left: @gridGutterWidth;
+
+      .span (@columns);
     }
 
     .row {
@@ -602,12 +610,16 @@
     .spanX (@gridColumns);
     .offsetX (@gridColumns);
 
+    .span-first-child {
+      margin-left:10px;
+    }
+
   }
 
   .fluid (@fluidGridColumnWidth, @fluidGridGutterWidth) {
 
     .spanX (@index) when (@index > 0) {
-      (~".span@{index}") { .span(@index); }
+      (~".span@{index}") { .span-fluid (@index); }
       .spanX(@index - 1);
     }
     .spanX (0) {}
@@ -634,8 +646,19 @@
       *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
     }
 
+    .span-fluid (@columns) {
+      .input-block-level();
+      float: left;
+      margin-left: @fluidGridGutterWidth;
+      *margin-left: @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+
+      .span (@columns);
+    }
+
+
     .row-fluid {
       width: 100%;
+
       .clearfix();
       [class*="span"] {
         .input-block-level();
@@ -655,20 +678,31 @@
       // generate .spanX and .offsetX
       .spanX (@gridColumns);
       .offsetX (@gridColumns);
-    }
 
+      .span-first-child {
+        margin-left: 0;
+      }
+
+    }
   }
 
   .input(@gridColumnWidth, @gridGutterWidth) {
 
     .spanX (@index) when (@index > 0) {
-      (~"input.span@{index}, textarea.span@{index}, .uneditable-input.span@{index}") { .span(@index); }
+      (~"input.span@{index}, textarea.span@{index}") { .span-input(@index); }
+      (~".uneditable-input.span@{index}") { .span(@index); }
       .spanX(@index - 1);
     }
     .spanX (0) {}
 
     .span(@columns) {
       width: ((@gridColumnWidth) * @columns) + (@gridGutterWidth * (@columns - 1)) - 14;
+    }
+
+    .span-input(@columns) {
+      .span(@columns);
+      float: none;
+      margin-left: 0;
     }
 
     input,
