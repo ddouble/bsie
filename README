@@ -78,3 +78,10 @@ IE6 bug fix tip
   }
   * notice: the filter will cause disappeared of absolute element which in relative container
 
+4. body background color:
+  body { /* Faild: Sometime, it will not render whole page by gray color  */
+    background-color: gray;
+  }
+  * html { /* Success! */
+    background-color: gray;
+  }
