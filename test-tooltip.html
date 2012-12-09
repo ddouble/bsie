@@ -20,8 +20,60 @@
 
 
 <style>
+.bs-docs-example-popover {
+  position: static;
+  /*overflow: visible;*/
+}
+.bs-docs-example-popover .popover {
+  position: relative;
+  display: block;
+  float: left;
+  width: 260px;
+  margin: 20px;
+}
+.arrow-after {
 
+}
 </style>
+
+
+<div class="bs-docs-example bs-docs-example-popover">
+  <div class="popover top">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Popover top</h3>
+    <div class="popover-content">
+      <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+    </div>
+  </div>
+
+  <div class="popover right">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Popover right</h3>
+    <div class="popover-content">
+      <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+    </div>
+  </div>
+
+  <div class="popover bottom">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Popover bottom</h3>
+    <div class="popover-content">
+      <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+    </div>
+  </div>
+
+  <div class="popover left">
+    <div class="arrow"></div>
+    <h3 class="popover-title">Popover left</h3>
+    <div class="popover-content">
+      <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div>
+
+
 
 <div class="bs-docs-example tooltip-demo">
   <ul class="bs-docs-tooltip-examples">
@@ -47,6 +99,8 @@
   (function($) {
     $(document).ready(function () {
       $('a[rel=tooltip]').tooltip({});
+
+      $(".popover").show();
     });
   })(jQuery);
 

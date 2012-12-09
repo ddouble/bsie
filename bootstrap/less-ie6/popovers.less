@@ -47,54 +47,68 @@
 }
 
 // Arrows
+// .popover .arrow,
+// .popover .arrow:after {
 .popover .arrow,
-.popover .arrow:after {
+.popover .arrow-after {
   position: absolute;
   display: inline-block;
+  *display: inline;
+  *zoom:1;
   width: 0;
   height: 0;
   border-color: transparent;
   border-style: solid;
 }
-.popover .arrow:after {
+// .popover .arrow:after {
+.popover .arrow-after {
   content: "";
   z-index: -1;
 }
 
 .popover {
   &.top .arrow {
-    bottom: -@popoverArrowWidth;
+    *bottom: -@popoverArrowWidth - 2px;
     left: 50%;
     margin-left: -@popoverArrowWidth;
     border-width: @popoverArrowWidth @popoverArrowWidth 0;
     border-top-color: @popoverArrowColor;
-    &:after {
+    .arrow-down(@popoverArrowWidth * 2, @popoverArrowWidth, darken(@popoverArrowColor, 20%));
+    // &:after {
+    &.arrow-after {
       border-width: @popoverArrowOuterWidth @popoverArrowOuterWidth 0;
       border-top-color: @popoverArrowOuterColor;
       bottom: -1px;
       left: -@popoverArrowOuterWidth;
+      // .arrow-down(@popoverArrowOuterWidth * 2, @popoverArrowOuterWidth);
     }
+    
   }
   &.right .arrow {
     top: 50%;
-    left: -@popoverArrowWidth;
+    *left: -@popoverArrowWidth;
     margin-top: -@popoverArrowWidth;
     border-width: @popoverArrowWidth @popoverArrowWidth @popoverArrowWidth 0;
     border-right-color: @popoverArrowColor;
-    &:after {
+    .arrow-left(@popoverArrowWidth * 2, @popoverArrowWidth, darken(@popoverArrowColor, 20%));
+    // &:after {
+    &-after {
       border-width: @popoverArrowOuterWidth @popoverArrowOuterWidth @popoverArrowOuterWidth 0;
       border-right-color: @popoverArrowOuterColor;
       bottom: -@popoverArrowOuterWidth;
       left: -1px;
     }
+    
   }
   &.bottom .arrow {
-    top: -@popoverArrowWidth;
+    *top: -@popoverArrowWidth;
     left: 50%;
     margin-left: -@popoverArrowWidth;
     border-width: 0 @popoverArrowWidth @popoverArrowWidth;
     border-bottom-color: @popoverArrowColor;
-    &:after {
+    .arrow-up(@popoverArrowWidth * 2, @popoverArrowWidth, darken(@popoverArrowColor, 20%));
+    // &:after {
+    &-after {
       border-width: 0 @popoverArrowOuterWidth @popoverArrowOuterWidth;
       border-bottom-color: @popoverArrowOuterColor;
       top: -1px;
@@ -103,11 +117,13 @@
   }
   &.left .arrow {
     top: 50%;
-    right: -@popoverArrowWidth;
+    *right: -@popoverArrowWidth;
     margin-top: -@popoverArrowWidth;
     border-width: @popoverArrowWidth 0 @popoverArrowWidth @popoverArrowWidth;
     border-left-color: @popoverArrowColor;
-    &:after {
+    .arrow-right(@popoverArrowWidth * 2, @popoverArrowWidth, darken(@popoverArrowColor, 20%));
+    // &:after {
+    &-after {
       border-width: @popoverArrowOuterWidth 0 @popoverArrowOuterWidth @popoverArrowOuterWidth;
       border-left-color: @popoverArrowOuterColor;
       bottom: -@popoverArrowOuterWidth;

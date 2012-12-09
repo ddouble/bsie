@@ -341,6 +341,11 @@
         $('.control-group.'+v, el).addClass('control-group-'+v);
       });
 
+      //-------------
+      // popover
+      //-------------
+      // $('.popover .arrow', el).after('<span class="arrow-after"></span>');
+
 
     }
   }
