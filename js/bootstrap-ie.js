@@ -351,6 +351,10 @@
       //-------------
       // $('.popover .arrow', el).after('<span class="arrow-after"></span>');
 
+      //-------------
+      // pagination
+      //-------------
+      $('.pagination ul li:first-child', el).addClass('first-child');
 
     }
   }
