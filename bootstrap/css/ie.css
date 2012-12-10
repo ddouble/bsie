@@ -28,3 +28,27 @@
 .close {
   _font-size: 15px;
 }
+
+.modal-header h3 {
+  *display: inline;
+  *zoom:1;
+}
+
+/* MODALS */
+.modal-backdrop {
+  _position: absolute;
+  _top:0;
+  _margin-top:0;
+  _width:expression(eval(document.documentElement.scrollWidth));
+  _height:expression(eval(document.documentElement.scrollHeight));
+}
+.modal {
+  _position:absolute;
+  _top:0;
+  _margin-top:0;
+  _top:expression(eval(document.documentElement.scrollTop));
+}
+
+.modal-body {
+  _height:expression(this.scrollHeight > 400 ? "400px" : "auto");
+}
