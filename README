@@ -95,12 +95,19 @@ Step 2: In end of the document, add following javascript:
   <script type="text/javascript" src="js/bootstrap-ie.js"></script>
 
 
+Step 3 (Optional accoding to your situation) : 
 
-**** Notice: ***
+  **** Notice: ***
+  
+  1. IE6    call $.bootstrapIE6() for every new html snippet (for ajax html content)
+    
+    /**
+     * make elements in container el are compatible with IE6
+     */
+    $.bootstrapIE6(el)
 
-1. IE6    call bootstrapIE6() for every new html snippet (for ajax html content)
-2. IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example: *width:180px;
-3. IE6    currently not support nested tabs control, because IE6 don't support child css selector 
+
+  2. IE6    currently not support nested tabs control, because IE6 don't support child css selector 
 
 ---------------------
 IE6-7 hack
@@ -182,6 +189,9 @@ IE6 bug fix tip
     background-color: gray;
   }
 
+5. IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example:
+  
+  *width:180px;
 
 -----------------------------------
  Contact
