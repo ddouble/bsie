@@ -23,3 +23,8 @@
 .dropdown {
   *zoom:1;
 }
+
+/* CLOSE */
+.close {
+  _font-size: 15px;
+}
