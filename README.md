@@ -1,7 +1,8 @@
 ## Welcome, This is bsie project Home.
 
 ### Introduce
-bsie is a patch library for Bootstrap IE6 support, bootstrap is a good web UI library from twitter.com
+bsie is a patch library for Bootstrap IE6 support, bootstrap is a good web UI library from [twitter.com](http://twitter.github.com/bootstrap)
+
 At present, bsie support the most common feature of bootstrap on IE6, but not all ...
 
 Following table is currently supported component & feature:
