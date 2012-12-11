@@ -14,8 +14,9 @@
 // For the white version of the icons, just add the .icon-white class:
 // <i class="icon-inbox icon-white"></i>
 
-[class^="icon-"],
-[class*=" icon-"] {
+// [class^="icon-"],
+// [class*=" icon-"] {
+.icon-xxx {
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -26,10 +27,20 @@
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
+
+  _display: inline;
+  _zoom:1;
+  _width: 14px;
+  _height: 19px;
+  _vertical-align: middle;
+  _background-image: url("@{iconSpritePath}-8.png");
 }
 
+
 /* White icons with optional class, or on hover/active states of certain elements */
-.icon-white,
+.icon-white {
+  background-image: url("@{iconWhiteSpritePath}");
+}
 .nav-pills > .active > a > [class^="icon-"],
 .nav-pills > .active > a > [class*=" icon-"],
 .nav-list > .active > a > [class^="icon-"],

@@ -356,6 +356,16 @@
       //-------------
       $('.pagination ul li:first-child', el).addClass('first-child');
 
+
+      //-------------
+      // icons
+      //-------------
+      $('[class^="icon-"],[class*=" icon-"]').addClass('icon-xxx').each(function () {
+        var self = $(this); 
+        self.css('background-position-y', 
+          (parseInt(self.css('background-position-y')) + 1)+'px');
+      });
+
     }
   }
   $.bootstrapIE6 = bootstrapIE6;
