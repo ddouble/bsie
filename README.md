@@ -1,12 +1,11 @@
----------------------
- Introduce
----------------------
-bsie is a patch library for Bootstrap IE6 support, bootstrap is a good web UI library from twitter.com
+## Welcome, This is bsie project Home.
 
+### Introduce
+bsie is a patch library for Bootstrap IE6 support, bootstrap is a good web UI library from twitter.com
 At present, bsie support the most common feature of bootstrap on IE6, but not all ...
 
-Following table is supported component & feature:
-
+Following table is currently supported component & feature:
+```
 Component       Feature
 -----------------------------------------------------------
 grid            fixed, fluid
@@ -32,67 +31,57 @@ media           all
 wells           all
 hero unit       all
 icons           all
+```
+
+### File summary
 
 
----------------------
- File summary
----------------------
-
-bootstrap/css/bootstrap.css :
+`bootstrap/css/bootstrap.css :`
 
   This is original bootstrap css.
 
-bootstrap/css/bootstrap.min.css :
+`bootstrap/css/bootstrap.min.css :`
 
   This is compressed original bootstrap css.
 
-bootstrap/css/bootstrap-ie6.css :
+`bootstrap/css/bootstrap-ie6.css :`
 
   This is bsie main css.
 
-bootstrap/css/bootstrap-ie6.min.css :
+`bootstrap/css/bootstrap-ie6.min.css :`
   
   This is compressed bsie main css.
 
-bootstrap/css/ie.css :
+`bootstrap/css/ie.css :`
   
-  This is bsie additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in <head> block.
+  This is bsie additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in `<head>` block.
 
-js/bootstrap-ie.js :
+`js/bootstrap-ie.js :`
   
   This javascript file patch some problem which can not be done by pure CSS approach.
 
-bootstrap/img/glyphicons-halflings.png-8.png :
+`bootstrap/img/glyphicons-halflings.png-8.png :`
   
   This image file is transparent icons for IE6, it's a 8 bit png image, not very perfect, but I think it can be accepted.
 
-
-bootstrap/less-ie6 :
+`bootstrap/less-ie6 :`
 
   There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css
 
 
+### Demo
 
----------------------
- Demo
----------------------
+**In bsie root directory, these file is demo:**
 
-In bsie root directory, these file is demo:
+`test-XXX.html`, for example test-buttons.html  test-form.html
 
-  test-XXX.html, for example test-buttons.html  test-form.html
-
-  p-1.html
-  ...
-  p-N.html, these file is a copy of bootstrap example pages
+`p-1.html`...`p-N.html`, these file is a copy of bootstrap example pages
 
 
+### Manual
 
----------------------
- Manual
----------------------
-
-Step 1: In <head> block, add following stylesheet:
-
+**Step 1, In `<head>` block, add following stylesheet:**
+```
   <!-- Bootstrap css file v2.2.1 -->
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 
@@ -103,9 +92,9 @@ Step 1: In <head> block, add following stylesheet:
   <!-- bsie additional css patch -->
   <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
   <![endif]-->
-
-Step 2: In end of the document, add following javascript:
-
+```
+**Step 2, In end of the document, add following javascript:**
+```
   <!-- jQuery 1.7.2 or higher -->
   <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 
@@ -116,42 +105,44 @@ Step 2: In end of the document, add following javascript:
   <!-- bsie js patch, it will only execute in IE6 -->
   <script type="text/javascript" src="js/bootstrap-ie.js"></script>
   <![endif]-->
+```
 
-
-Step 3 (Optional accoding to your situation) : 
-
-  **** Notice: ***
+**Step 3, Optional accoding to your situation:**
   
-  1. IE6    call $.bootstrapIE6() for every new html snippet (for ajax html content)
-    
-    /**
-     * make elements in container el are compatible with IE6
-     */
-    $.bootstrapIE6(el)
+IE6   **Notice:** : call $.bootstrapIE6(el) for every new html snippet (for ajax html content)
+```    
+/**
+ * make elements in container el are compatible with IE6
+ */
+$.bootstrapIE6(el)
+```
+
+IE6    currently not support nested tabs control, because IE6 don't support child css selector 
 
 
-  2. IE6    currently not support nested tabs control, because IE6 don't support child css selector 
+### IE6-7 hack
 
----------------------
-IE6-7 hack
----------------------
-1.IE6 hack
+**IE6 hack**
+```
   _zoom:1;
-
-2.IE6-7 hack
+```
+**IE6-7 hack**
+```
   *zoom:1;
+```
 
----------------------
-IE6 bug fix tip
----------------------
-1. hasLayout (clear float):
+### IE6 bug fix tip
+
+**hasLayout (clear float):**
+```
   .container 
   { 
     zoom:1; 
   }
+```
 
-  other css property which will trigger hasLayout:
-  
+**other css property which will trigger hasLayout:**
+```  
   position:   absolute
   float:      left | right
   display:    inline-block
@@ -166,10 +157,10 @@ IE6 bug fix tip
   min-height: any value
   max-height:  except 'none'
   writing-mode: tb-rl   /* only for MS */
-
+```
   
-  following css property will clear hasLayout:
-  
+**following css property will clear hasLayout:**
+```  
   width:        auto;
   height:       auto;
   max-width:    none;   /* IE7 */
@@ -179,52 +170,54 @@ IE6 bug fix tip
   overflow:     visible;
   zoom:         normal;
   writing-mode: lr-t;
+```
 
-
-  In one selector, following css will not set hasLayout=false:
+**In one selector, following css will not set hasLayout=false:**
+```
   .element {
     display:inline-block;
     display:inline;
   }
+```
 
-
-
-2. inline-block:
-  .container 
+**inline-block:**
+```
+  `.container 
   { 
     zoom:1; 
     display:inline;
   }
+```
 
-3. transparent color:
+**transparent color:**
+```
   .element
   {
     border-color:pink/* rarely used color */;
     filter:chroma(color:pink);
   }
   * notice: the filter will cause disappeared of absolute element which in relative container
+```
 
-4. body background color:
+**body background color:**
+```
   body { /* Faild: Sometime, it will not render whole page by gray color  */
     background-color: gray;
   }
   * html { /* Success! */
     background-color: gray;
   }
+```
 
-5. IE6-7  ul.dropdown-menu must add this style: *width:explicit-width;
-  
+IE6-7  ul.dropdown-menu must add this style: _*width:explicit-width_;
+```
   /* for example */
   *width:180px;
+```
 
------------------------------------
- Contact
------------------------------------
- If you have some patch for these library, Please send to:
+### Support & Contact
 
- ddouble.cn@gmail.com
+If you have some patch for these library, Please send to:
+ddouble.cn@gmail.com
 
- Thanks.
-
-
-
+Thanks.
