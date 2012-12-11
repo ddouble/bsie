@@ -31,32 +31,221 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <h2>Welcome, This is bsie project Home.</h2>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h3>Introduce</h3>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>bsie is a patch library for Bootstrap IE6 support, bootstrap is a good web UI library from twitter.com
+At present, bsie support the most common feature of bootstrap on IE6, but not all ...</p>
+
+<p>Following table is currently supported component &amp; feature:</p>
+
+<pre><code>Component       Feature
+-----------------------------------------------------------
+grid            fixed, fluid
+navbar          top, fixed
+nav             list, tabs, pills
+dropdown        dropdown (two level)
+buttons         button, group color, size, dropdown-button, 
+                (disable state is not dynamic)
+form            default, horizontal, inline, all controls, 
+                validation state
+tables          hover
+pagination      all
+labels          all
+badges          all
+code            all
+modal           most
+tooltip         all
+popover         all
+alert           all
+typeahead       all
+progressbar     most
+media           all
+wells           all
+hero unit       all
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>File summary</h3>
 
-<h3>Designer Templates</h3>
+<pre><code>bootstrap/less-ie6 :
+</code></pre>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css</p>
 
-<h3>Rather Drive Stick?</h3>
+<pre><code>bootstrap/css/ie.css :
+</code></pre>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>This is additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in </p> block.
 
-<h3>Authors and Contributors</h3>
+<pre><code>js/bootstrap-ie.js :
+</code></pre>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>This javascript file patch some problem which can not be done by pure CSS approach.</p>
 
-<h3>Support or Contact</h3>
+<h3>Demo</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>In bsie root directory, these file is demo:</p>
+
+<p><code>test-XXX.html</code>, for example test-buttons.html  test-form.html</p>
+
+<p><code>p-1.html</code>
+  ...
+  <code>p-N.html</code>, these file is a copy of bootstrap example pages</p>
+
+<h3>Manual</h3>
+
+<p>Step 1: In </p> block, add following stylesheet:
+
+<pre><code>  &lt;!-- Bootstrap css file v2.2.1 --&gt;
+  &lt;link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"&gt;
+
+  &lt;!--[if lte IE 6]&gt;
+  &lt;!-- bsie css patch --&gt;
+  &lt;link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css"&gt;
+
+  &lt;!-- bsie additional css patch --&gt;
+  &lt;link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css"&gt;
+  &lt;![endif]--&gt;
+</code></pre>
+
+<p>Step 2: In end of the document, add following javascript:</p>
+
+<pre><code>  &lt;!-- jQuery 1.7.2 or higher --&gt;
+  &lt;script type="text/javascript" src="js/jquery-1.7.2.min.js"&gt;&lt;/script&gt;
+
+  &lt;!-- Optional, bootstrap javascript library --&gt;
+  &lt;script type="text/javascript" src="bootstrap/js/bootstrap.js"&gt;&lt;/script&gt;
+
+  &lt;!-- bsie js patch, it will only execute in IE6 --&gt;
+  &lt;script type="text/javascript" src="js/bootstrap-ie.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Step 3 (Optional accoding to your situation) : </p>
+
+<p>**** Notice: ***</p>
+
+<blockquote>
+<ol>
+<li>IE6    call $.bootstrapIE6() for every new html snippet (for ajax html content)</li>
+</ol>
+</blockquote>
+
+<pre><code>    /**
+     * make elements in container el are compatible with IE6
+     */
+    $.bootstrapIE6(el)
+</code></pre>
+
+<blockquote>
+<ol>
+<li>IE6    currently not support nested tabs control, because IE6 don't support child css selector </li>
+</ol>
+</blockquote>
+
+<h3>IE6-7 hack</h3>
+
+<ol>
+<li><p>IE6 hack
+_zoom:1;</p></li>
+<li><p>IE6-7 hack
+*zoom:1;</p></li>
+</ol><h3>IE6 bug fix tip</h3>
+
+<ol>
+<li>
+<p>hasLayout (clear float):</p>
+
+<pre><code>.container 
+{ 
+zoom:1; 
+}
+</code></pre>
+
+<p>other css property which will trigger hasLayout:</p>
+
+<pre><code>position:   absolute
+float:      left | right
+display:    inline-block
+width:      except 'auto'
+height:     except 'auto'
+zoom:       except 'normal'
+overflow:   hidden | scroll | auto
+overflow-x/-y: hidden | scroll | auto
+position:   fixed
+min-width:  any value
+max-width:  except 'none'
+min-height: any value
+max-height:  except 'none'
+writing-mode: tb-rl   /* only for MS */
+</code></pre>
+
+<p>following css property will clear hasLayout:</p>
+
+<pre><code>width:        auto;
+height:       auto;
+max-width:    none;   /* IE7 */
+max-height:   none;   /* IE7 */
+position:     static;
+float:        none;
+overflow:     visible;
+zoom:         normal;
+writing-mode: lr-t;
+</code></pre>
+
+<p>In one selector, following css will not set hasLayout=false:</p>
+
+<pre><code>.element {
+display:inline-block;
+display:inline;
+}
+</code></pre>
+</li>
+<li>
+<p>inline-block:</p>
+
+<pre><code>`.container 
+{ 
+zoom:1; 
+display:inline;
+}
+</code></pre>
+</li>
+<li>
+<p>transparent color:</p>
+
+<pre><code>.element
+{
+border-color:pink/* rarely used color */;
+filter:chroma(color:pink);
+}
+* notice: the filter will cause disappeared of absolute element which in relative container
+</code></pre>
+</li>
+<li>
+<p>body background color:</p>
+
+<pre><code>body { /* Faild: Sometime, it will not render whole page by gray color  */
+background-color: gray;
+}
+* html { /* Success! */
+background-color: gray;
+}
+</code></pre>
+</li>
+<li>
+<p>IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example:</p>
+
+<pre><code>*width:180px;
+</code></pre>
+</li>
+</ol><h3>Support &amp; Contact</h3>
+
+<p>If you have some patch for these library, Please send to:</p>
+
+<p><a href="mailto:ddouble.cn@gmail.com">ddouble.cn@gmail.com</a></p>
+
+<p>Thanks.</p>
       </section>
     </div>
 
