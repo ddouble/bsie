@@ -68,21 +68,41 @@ hero unit       all
 
 <h3>File summary</h3>
 
-<p><strong>bootstrap/less-ie6 :</strong>
-  There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css</p>
+<p><code>bootstrap/css/bootstrap.css :</code></p>
 
-<p><strong>bootstrap/css/ie.css :</strong>
-  This is additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in <code>&lt;head&gt;</code> block.</p>
+<p>This is original bootstrap css.</p>
 
-<p><strong>js/bootstrap-ie.js :</strong>
-  This javascript file patch some problem which can not be done by pure CSS approach.</p>
+<p><code>bootstrap/css/bootstrap.min.css :</code></p>
 
-<p><strong>bootstrap/img/glyphicons-halflings.png-8.png :</strong>
-  This image file is transparent icons for IE6, it's not very perfect, but I think it can be accepted.</p>
+<p>This is compressed original bootstrap css.</p>
+
+<p><code>bootstrap/css/bootstrap-ie6.css :</code></p>
+
+<p>This is bsie main css.</p>
+
+<p><code>bootstrap/css/bootstrap-ie6.min.css :</code></p>
+
+<p>This is compressed bsie main css.</p>
+
+<p><code>bootstrap/css/ie.css :</code></p>
+
+<p>This is bsie additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in </p> block.
+
+<p><code>js/bootstrap-ie.js :</code></p>
+
+<p>This javascript file patch some problem which can not be done by pure CSS approach.</p>
+
+<p><code>bootstrap/img/glyphicons-halflings.png-8.png :</code></p>
+
+<p>This image file is transparent icons for IE6, it's a 8 bit png image, not very perfect, but I think it can be accepted.</p>
+
+<p><code>bootstrap/less-ie6 :</code></p>
+
+<p>There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css</p>
 
 <h3>Demo</h3>
 
-<p>In bsie root directory, these file is demo:</p>
+<p><strong>In bsie root directory, these file is demo:</strong></p>
 
 <p><code>test-XXX.html</code>, for example test-buttons.html  test-form.html</p>
 
@@ -132,19 +152,19 @@ $.bootstrapIE6(el)
 
 <h3>IE6-7 hack</h3>
 
-<p>IE6 hack</p>
+<p><strong>IE6 hack</strong></p>
 
 <pre><code>  _zoom:1;
 </code></pre>
 
-<p>IE6-7 hack</p>
+<p><strong>IE6-7 hack</strong></p>
 
 <pre><code>  *zoom:1;
 </code></pre>
 
 <h3>IE6 bug fix tip</h3>
 
-<p>hasLayout (clear float):</p>
+<p><strong>hasLayout (clear float):</strong></p>
 
 <pre><code>  .container 
   { 
@@ -152,7 +172,7 @@ $.bootstrapIE6(el)
   }
 </code></pre>
 
-<p>other css property which will trigger hasLayout:</p>
+<p><strong>other css property which will trigger hasLayout:</strong></p>
 
 <pre><code>  position:   absolute
   float:      left | right
@@ -170,7 +190,7 @@ $.bootstrapIE6(el)
   writing-mode: tb-rl   /* only for MS */
 </code></pre>
 
-<p>following css property will clear hasLayout:</p>
+<p><strong>following css property will clear hasLayout:</strong></p>
 
 <pre><code>  width:        auto;
   height:       auto;
@@ -183,7 +203,7 @@ $.bootstrapIE6(el)
   writing-mode: lr-t;
 </code></pre>
 
-<p>In one selector, following css will not set hasLayout=false:</p>
+<p><strong>In one selector, following css will not set hasLayout=false:</strong></p>
 
 <pre><code>  .element {
     display:inline-block;
@@ -191,7 +211,7 @@ $.bootstrapIE6(el)
   }
 </code></pre>
 
-<p>inline-block:</p>
+<p><strong>inline-block:</strong></p>
 
 <pre><code>  `.container 
   { 
@@ -200,7 +220,7 @@ $.bootstrapIE6(el)
   }
 </code></pre>
 
-<p>transparent color:</p>
+<p><strong>transparent color:</strong></p>
 
 <pre><code>  .element
   {
@@ -210,7 +230,7 @@ $.bootstrapIE6(el)
   * notice: the filter will cause disappeared of absolute element which in relative container
 </code></pre>
 
-<p>body background color:</p>
+<p><strong>body background color:</strong></p>
 
 <pre><code>  body { /* Faild: Sometime, it will not render whole page by gray color  */
     background-color: gray;
@@ -220,9 +240,10 @@ $.bootstrapIE6(el)
   }
 </code></pre>
 
-<p>IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example:</p>
+<p>IE6-7  ul.dropdown-menu must add this style: <em>*width:explicit-width</em>;</p>
 
-<pre><code>  *width:180px;
+<pre><code>  /* for example */
+  *width:180px;
 </code></pre>
 
 <h3>Support &amp; Contact</h3>
