@@ -146,27 +146,27 @@
   padding-left: 9px;
   padding-right: 9px;
   .box-shadow(~"inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
-  *padding-top: 5px;
-  *padding-bottom: 5px;
+  // *padding-top: 5px;
+  // *padding-bottom: 5px;
 }
 // .btn-group > .btn-mini + .dropdown-toggle {
 .btn-group .btn-mini-dropdown-toggle /* fix for IE6 */ {
   padding-left: 7px;
   padding-right: 7px;
-  *padding-top: 4px;
-  *padding-bottom: 4px;
+  // *padding-top: 4px;
+  // *padding-bottom: 4px;
 }
 // .btn-group > .btn-small + .dropdown-toggle {
 .btn-group .btn-small-dropdown-toggle /* fix for IE6 */ {
-  *padding-top: 5px;
-  *padding-bottom: 4px;
+  // *padding-top: 5px;
+  // *padding-bottom: 4px;
 }
 // .btn-group > .btn-large + .dropdown-toggle {
 .btn-group .btn-large-dropdown-toggle /* fix for IE6 */ {
   padding-left: 17px;
   padding-right: 17px;
-  *padding-top: 12px;
-  *padding-bottom: 12px;
+  // *padding-top: 12px;
+  // *padding-bottom: 12px;
 }
 
 // .btn-group.open {
@@ -215,6 +215,15 @@
 .btn .caret {
   margin-top: 8px;
   margin-left: 0;
+
+  _display: inline;
+  _zoom:1;
+  _height: 8px;
+  _vertical-align: middle;
+}
+.btn-mini .caret,
+.btn-small .caret {
+  _height: 10px;
 }
 // Carets in other button sizes
 .btn-mini .caret,
@@ -226,6 +235,8 @@
   border-left-width:  5px;
   border-right-width: 5px;
   border-top-width:   5px;
+
+  _height: 9px;
 }
 // Upside down carets for .dropup
 .dropup .btn-large .caret {
