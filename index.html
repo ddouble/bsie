@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Bsie : Bootstrap IE6 Compatible Library" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Bsie</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Bsie by ddouble</title>
   </head>
 
   <body>
+    <div id="container">
+      <div class="inner">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ddouble/bsie">View on GitHub</a>
-
-          <h1 id="project_title">Bsie</h1>
-          <h2 id="project_tagline">Bootstrap IE6 Compatible Library</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ddouble/bsie/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ddouble/bsie/tarball/master">Download this project as a tar.gz file</a>
-            </section>
+        <header>
+          <h1>Bsie</h1>
+          <h2>Bootstrap IE6 Compatible Library</h2>
         </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h2>Welcome, This is bsie project Home.</h2>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/ddouble/bsie/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/ddouble/bsie/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/ddouble/bsie" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>Welcome, This is bsie project Home.</h2>
 
 <h3>Introduce</h3>
 
@@ -76,7 +76,7 @@ hero unit       all
 <pre><code>bootstrap/css/ie.css :
 </code></pre>
 
-<p>This is additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in </p> block.
+<p>This is additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in <code>&lt;head&gt;</code> block.</p>
 
 <pre><code>js/bootstrap-ie.js :
 </code></pre>
@@ -95,7 +95,7 @@ hero unit       all
 
 <h3>Manual</h3>
 
-<p>Step 1: In </p> block, add following stylesheet:
+<p>Step 1: In <code>&lt;head&gt;</code> block, add following stylesheet:</p>
 
 <pre><code>  &lt;!-- Bootstrap css file v2.2.1 --&gt;
   &lt;link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"&gt;
@@ -123,13 +123,9 @@ hero unit       all
 
 <p>Step 3 (Optional accoding to your situation) : </p>
 
-<p>**** Notice: ***</p>
+<p>*** Notice: ***</p>
 
-<blockquote>
-<ol>
-<li>IE6    call $.bootstrapIE6() for every new html snippet (for ajax html content)</li>
-</ol>
-</blockquote>
+<p>IE6    call $.bootstrapIE6(_el_) for every new html snippet (for ajax html content)</p>
 
 <pre><code>    /**
      * make elements in container el are compatible with IE6
@@ -137,11 +133,7 @@ hero unit       all
     $.bootstrapIE6(el)
 </code></pre>
 
-<blockquote>
-<ol>
-<li>IE6    currently not support nested tabs control, because IE6 don't support child css selector </li>
-</ol>
-</blockquote>
+<p>IE6    currently not support nested tabs control, because IE6 don't support child css selector </p>
 
 <h3>IE6-7 hack</h3>
 
@@ -152,112 +144,102 @@ _zoom:1;</p></li>
 *zoom:1;</p></li>
 </ol><h3>IE6 bug fix tip</h3>
 
-<ol>
-<li>
 <p>hasLayout (clear float):</p>
 
-<pre><code>.container 
-{ 
-zoom:1; 
-}
+<pre><code>  .container 
+  { 
+    zoom:1; 
+  }
 </code></pre>
 
 <p>other css property which will trigger hasLayout:</p>
 
-<pre><code>position:   absolute
-float:      left | right
-display:    inline-block
-width:      except 'auto'
-height:     except 'auto'
-zoom:       except 'normal'
-overflow:   hidden | scroll | auto
-overflow-x/-y: hidden | scroll | auto
-position:   fixed
-min-width:  any value
-max-width:  except 'none'
-min-height: any value
-max-height:  except 'none'
-writing-mode: tb-rl   /* only for MS */
+<pre><code>  position:   absolute
+  float:      left | right
+  display:    inline-block
+  width:      except 'auto'
+  height:     except 'auto'
+  zoom:       except 'normal'
+  overflow:   hidden | scroll | auto
+  overflow-x/-y: hidden | scroll | auto
+  position:   fixed
+  min-width:  any value
+  max-width:  except 'none'
+  min-height: any value
+  max-height:  except 'none'
+  writing-mode: tb-rl   /* only for MS */
 </code></pre>
 
 <p>following css property will clear hasLayout:</p>
 
-<pre><code>width:        auto;
-height:       auto;
-max-width:    none;   /* IE7 */
-max-height:   none;   /* IE7 */
-position:     static;
-float:        none;
-overflow:     visible;
-zoom:         normal;
-writing-mode: lr-t;
+<pre><code>  width:        auto;
+  height:       auto;
+  max-width:    none;   /* IE7 */
+  max-height:   none;   /* IE7 */
+  position:     static;
+  float:        none;
+  overflow:     visible;
+  zoom:         normal;
+  writing-mode: lr-t;
 </code></pre>
 
 <p>In one selector, following css will not set hasLayout=false:</p>
 
-<pre><code>.element {
-display:inline-block;
-display:inline;
-}
+<pre><code>  .element {
+    display:inline-block;
+    display:inline;
+  }
 </code></pre>
-</li>
-<li>
+
 <p>inline-block:</p>
 
-<pre><code>`.container 
-{ 
-zoom:1; 
-display:inline;
-}
+<pre><code>  `.container 
+  { 
+    zoom:1; 
+    display:inline;
+  }
 </code></pre>
-</li>
-<li>
+
 <p>transparent color:</p>
 
-<pre><code>.element
-{
-border-color:pink/* rarely used color */;
-filter:chroma(color:pink);
-}
-* notice: the filter will cause disappeared of absolute element which in relative container
+<pre><code>  .element
+  {
+    border-color:pink/* rarely used color */;
+    filter:chroma(color:pink);
+  }
+  * notice: the filter will cause disappeared of absolute element which in relative container
 </code></pre>
-</li>
-<li>
+
 <p>body background color:</p>
 
-<pre><code>body { /* Faild: Sometime, it will not render whole page by gray color  */
-background-color: gray;
-}
-* html { /* Success! */
-background-color: gray;
-}
+<pre><code>  body { /* Faild: Sometime, it will not render whole page by gray color  */
+    background-color: gray;
+  }
+  * html { /* Success! */
+    background-color: gray;
+  }
 </code></pre>
-</li>
-<li>
+
 <p>IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example:</p>
 
-<pre><code>*width:180px;
+<pre><code>  *width:180px;
 </code></pre>
-</li>
-</ol><h3>Support &amp; Contact</h3>
 
-<p>If you have some patch for these library, Please send to:</p>
+<h3>Support &amp; Contact</h3>
 
-<p><a href="mailto:ddouble.cn@gmail.com">ddouble.cn@gmail.com</a></p>
+<p>If you have some patch for these library, Please send to:
+<a href="mailto:ddouble.cn@gmail.com">ddouble.cn@gmail.com</a></p>
 
 <p>Thanks.</p>
-      </section>
+        </section>
+
+        <footer>
+          Bsie is maintained by <a href="https://github.com/ddouble">ddouble</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Bsie maintained by <a href="https://github.com/ddouble">ddouble</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
   </body>
 </html>
