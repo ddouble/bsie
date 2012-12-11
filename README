@@ -31,25 +31,46 @@ progressbar     most
 media           all
 wells           all
 hero unit       all
+icons           all
 
 
 ---------------------
  File summary
 ---------------------
 
-bootstrap/less-ie6 :
+bootstrap/css/bootstrap.css :
 
-  There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css
+  This is original bootstrap css.
 
+bootstrap/css/bootstrap.min.css :
+
+  This is compressed original bootstrap css.
+
+bootstrap/css/bootstrap-ie6.css :
+
+  This is bsie main css.
+
+bootstrap/css/bootstrap-ie6.min.css :
+  
+  This is compressed bsie main css.
 
 bootstrap/css/ie.css :
   
-  This is additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in <head> block.
-
+  This is bsie additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in <head> block.
 
 js/bootstrap-ie.js :
   
   This javascript file patch some problem which can not be done by pure CSS approach.
+
+bootstrap/img/glyphicons-halflings.png-8.png :
+  
+  This image file is transparent icons for IE6, it's a 8 bit png image, not very perfect, but I think it can be accepted.
+
+
+bootstrap/less-ie6 :
+
+  There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css
+
 
 
 ---------------------
@@ -91,8 +112,10 @@ Step 2: In end of the document, add following javascript:
   <!-- Optional, bootstrap javascript library -->
   <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
   
+  <!--[if lte IE 6]>
   <!-- bsie js patch, it will only execute in IE6 -->
   <script type="text/javascript" src="js/bootstrap-ie.js"></script>
+  <![endif]-->
 
 
 Step 3 (Optional accoding to your situation) : 
@@ -189,8 +212,9 @@ IE6 bug fix tip
     background-color: gray;
   }
 
-5. IE6-7  ul.dropdown-menu must add this style: *width:explicit-width; for example:
+5. IE6-7  ul.dropdown-menu must add this style: *width:explicit-width;
   
+  /* for example */
   *width:180px;
 
 -----------------------------------
