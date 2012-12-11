@@ -68,20 +68,17 @@ hero unit       all
 
 <h3>File summary</h3>
 
-<pre><code>bootstrap/less-ie6 :
-</code></pre>
+<p><strong>bootstrap/less-ie6 :</strong>
+  There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css</p>
 
-<p>There are all patched .less files, you can compile bootstrap-ie6.less with lessc to get your patch css file -- bootstrap-ie6.css</p>
+<p><strong>bootstrap/css/ie.css :</strong>
+  This is additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in <code>&lt;head&gt;</code> block.</p>
 
-<pre><code>bootstrap/css/ie.css :
-</code></pre>
+<p><strong>js/bootstrap-ie.js :</strong>
+  This javascript file patch some problem which can not be done by pure CSS approach.</p>
 
-<p>This is additional css patch, its most content can not be writen in .less file, it must follow bootstrap-ie6.css in <code>&lt;head&gt;</code> block.</p>
-
-<pre><code>js/bootstrap-ie.js :
-</code></pre>
-
-<p>This javascript file patch some problem which can not be done by pure CSS approach.</p>
+<p><strong>bootstrap/img/glyphicons-halflings.png-8.png :</strong>
+  This image file is transparent icons for IE6, it's not very perfect, but I think it can be accepted.</p>
 
 <h3>Demo</h3>
 
@@ -115,8 +112,10 @@ hero unit       all
   &lt;!-- Optional, bootstrap javascript library --&gt;
   &lt;script type="text/javascript" src="bootstrap/js/bootstrap.js"&gt;&lt;/script&gt;
 
+  &lt;!--[if lte IE 6]&gt;
   &lt;!-- bsie js patch, it will only execute in IE6 --&gt;
   &lt;script type="text/javascript" src="js/bootstrap-ie.js"&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
 </code></pre>
 
 <p><strong>Step 3, Optional accoding to your situation:</strong></p>
