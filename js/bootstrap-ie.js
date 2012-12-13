@@ -360,10 +360,13 @@
       //-------------
       // icons
       //-------------
-      $('[class^="icon-"],[class*=" icon-"]').addClass('icon-xxx').each(function () {
+      $('[class^="icon-"],[class*=" icon-"]').each(function () {
         var self = $(this); 
-        self.css('background-position-y', 
-          (parseInt(self.css('background-position-y')) + 1)+'px');
+        if (!self.hasClass('icon-xxx')) {
+          self.addClass('icon-xxx');
+          self.css('background-position-y', 
+            (parseInt(self.css('background-position-y')) + 1)+'px');
+        }
       });
 
     }
