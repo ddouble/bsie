@@ -345,6 +345,24 @@
       $.each(ctlGrpTypeCls, function (k,v) {
         $('.control-group.'+v, el).addClass('control-group-'+v);
       });
+      $('.control-group', el).on('propertychange', function(e) {
+        if(e.originalEvent.propertyName.toLowerCase() == 'classname') {
+          var self = $(this);
+          $.each(ctlGrpTypeCls, function (k,v) {
+            var ieCls = 'control-group-'+v;
+            if (self.hasClass(v)) {
+              if (!self.hasClass(ieCls)) {
+                self.addClass(ieCls);
+              }
+            }
+            else {
+              if (self.hasClass(ieCls)) {
+                self.removeClass(ieCls);
+              }
+            }
+          });
+        }
+      });
 
       //-------------
       // popover
