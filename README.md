@@ -115,7 +115,7 @@ IE6   **Notice:** : call $.bootstrapIE6(el) for every new html snippet (for ajax
 /**
  * make elements in container el to be compatible with IE6
  */
-$.bootstrapIE6(el)
+if ($.isFunction($.bootstrapIE6)) $.bootstrapIE6(el);
 ```
 
 IE6    currently not support nested tabs control, because IE6 don't support child css selector 
