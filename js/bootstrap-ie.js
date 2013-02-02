@@ -1,16 +1,21 @@
 (function($) {
   $.eb = $.eb || {};
 
-  $.eb.ie = function (min,max) {
-    // return true;
-    if ($.browser.msie) {
-      var v = Math.floor($.browser.version);
-      if (v >= min && v <= max) {
-        return true;
-      }
-    }
-    return false;
+  // $.eb.ie = function (min,max) {
+  //   // return true;
+  //   if ($.browser.msie) {
+  //     var v = Math.floor($.browser.version);
+  //     if (v >= min && v <= max) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
+  $.eb.ie6 = function () {
+    return navigator.userAgent.toLowerCase().indexOf('msie 6.0') > -1;
+    // alert(navigator.userAgent.toLowerCase().indexOf('msie 6.0'));
   }
+ 
 
   $.eb.color = function () {
     var pad = function(num, totalChars) {
@@ -98,7 +103,7 @@
 
 
   function bootstrapIE6(el) {
-    function dropdownWidthFix(el) {
+    var dropdownWidthFix = function (el) {
       el.each(function () {
         var w = 0;
         $(this).children('li').each(function() {
@@ -110,7 +115,7 @@
       });
     }
 
-    if ($.eb.ie(0,6)) {
+    if ($.eb.ie6) {
       el = el || $('html');
 
       //-------------
@@ -142,9 +147,7 @@
 
       /// fix ul li 100% width bug, set ul width to max width of it's sub li
       dropdownWidthFix($('.dropdown-menu:visible', el));
-      $('.dropdown-toggle', el).parent().on('propertychange', function() {
-        dropdownWidthFix($('.dropdown-menu:visible', this));
-      });
+
 
       //-------------
       // buttons
@@ -209,45 +212,45 @@
       });
 
       // fix .btn-group.open
+      var dropdownPropertyChange = function(e) {
+        var self = $(this);
+        var cls = e.data.cls;
+
+        /// fix ul li 100% width bug, set ul width to max width of it's sub li
+        var el = $('.dropdown-menu:visible', this);
+        if (el.length) dropdownWidthFix(el);
+
+        if (self.hasClass('open') && !self.hasClass(cls+'-open')) {
+          self.addClass(cls+'-open');
+        }
+        else if (!self.hasClass('open') && self.hasClass(cls+'-open')) {
+          self.removeClass(cls+'-open');
+        }
+
+        self.one('propertychange', {cls:cls}, dropdownPropertyChange);
+      };
       $.each(['btn-group', 'dropdown'], function (k,cls) {
-        $('.'+cls, el).on('propertychange', function(e) {
-          var g = $(this);
-          if (g.data('changeClass')) {
-            g.removeData('changeClass');
-            return;
-          }
-          // dropdownWidthFix($('.dropdown-menu:visible', this));
-          if (g.hasClass('open') && !g.hasClass(cls+'-open')) {
-            g.addClass(cls+'-open');
-            g.data('changeClass', true);
-          }
-          else if (!g.hasClass('open') && g.hasClass(cls+'-open')) {
-            g.removeClass(cls+'-open');
-            g.data('changeClass', true);
-          }
-        });
+        $('.'+cls, el).one('propertychange', {cls:cls}, dropdownPropertyChange);
       });
 
       // fix .btn.disabled selector
       $('.btn.disabled', el).addClass('btn-disabled');
 
+      var btnPropertyChange = function (e) {
+        var self = $(this);
+        var cls = e.data.cls;
+
+        if (self.hasClass('disabled') && !self.hasClass(cls+'-disabled')) {
+          self.addClass(cls+'-disabled');
+        }
+        else if (!self.hasClass('disabled') && self.hasClass(cls+'-disabled')) {
+          self.removeClass(cls+'-disabled');
+        }
+
+        self.one('propertychange', {cls:cls}, btnPropertyChange);
+      }
       $.each(['btn'], function (k,cls) {
-        $('button.'+cls, el).on('propertychange', function(e) {
-          var g = $(this);
-          if (g.data('chgDisabled')) {
-            g.removeData('chgDisabled');
-            return;
-          }
-          // dropdownWidthFix($('.dropdown-menu:visible', this));
-          if (g.hasClass('disabled') && !g.hasClass(cls+'-disabled')) {
-            g.addClass(cls+'-disabled');
-            g.data('chgDisabled', true);
-          }
-          else if (!g.hasClass('disabled') && g.hasClass(cls+'-disabled')) {
-            g.removeClass(cls+'-disabled');
-            g.data('chgDisabled', true);
-          }
-        });
+        $('.'+cls, el).one('propertychange', {cls:cls}, btnPropertyChange);
       });
 
 
@@ -345,7 +348,8 @@
       $.each(ctlGrpTypeCls, function (k,v) {
         $('.control-group.'+v, el).addClass('control-group-'+v);
       });
-      $('.control-group', el).on('propertychange', function(e) {
+
+      var controlGroupPropertyChange = function(e) {
         if(e.originalEvent.propertyName.toLowerCase() == 'classname') {
           var self = $(this);
           $.each(ctlGrpTypeCls, function (k,v) {
@@ -362,7 +366,9 @@
             }
           });
         }
-      });
+        $(this).one('propertychange', controlGroupPropertyChange);
+      };
+      $('.control-group', el).one('propertychange', controlGroupPropertyChange);
 
       //-------------
       // popover
@@ -394,23 +400,6 @@
 
   $(document).ready(function () {
     bootstrapIE6();
-
-    if ($.eb.ie(0,6)) {
-      
-      //-------------
-      // dropdown 
-      //-------------
-
-
-
-
-      //-------------
-      // buttons
-      //-------------
-
-
-    }
-
   });
 
 })(jQuery);

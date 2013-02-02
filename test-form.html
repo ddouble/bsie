@@ -64,6 +64,7 @@
   <div class="form-actions">
     <button type="submit" class="btn btn-primary">Save changes</button>
     <button type="button" class="btn">Cancel</button>
+    <button type="button" class="btn chgctrlgroup">change first input to error state</button>
     <button type="button" class="btn disinput">disable first input</button>
     <button type="button" class="btn roinput">readonly first input</button>
   </div>
@@ -217,12 +218,17 @@
 
     <p style="height:1000px;"></p>
 
-  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+  <!-- <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script> -->
   <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
   <script type="text/javascript" src="js/bootstrap-ie.js"></script>
   <script type="text/javascript">
   (function($) {
     $(document).ready(function () {
+      $('.chgctrlgroup').click(function () {
+        $('.control-group.warning').removeClass('warning').addClass('error');
+      });
       $('.btn.disinput').click(function () {
         var input = $('input[type="text"]:eq(0)');
         // input.css('border','5px solid #000');
