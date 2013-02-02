@@ -18,6 +18,7 @@ buttons         button, group color, size, dropdown-button,
 form            default, horizontal, inline, all controls, 
                 validation state
 tables          hover
+breadcrumbs     all
 pagination      all
 labels          all
 badges          all
