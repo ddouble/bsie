@@ -52,6 +52,7 @@ buttons         button, group color, size, dropdown-button,
 form            default, horizontal, inline, all controls, 
                 validation state
 tables          hover
+breadcrumbs     all
 pagination      all
 labels          all
 badges          all
@@ -147,7 +148,7 @@ icons           all
 <pre><code>/**
  * make elements in container el to be compatible with IE6
  */
-$.bootstrapIE6(el)
+if ($.isFunction($.bootstrapIE6)) $.bootstrapIE6(el);
 </code></pre>
 
 <p>IE6    currently not support nested tabs control, because IE6 don't support child css selector </p>
