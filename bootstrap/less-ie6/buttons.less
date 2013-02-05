@@ -27,7 +27,7 @@
   .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
 
   // Hover state
-  &:hover,
+  // &:hover,
   &.btn-hover {
     color: @grayDark;
     text-decoration: none;
@@ -46,8 +46,8 @@
   }
 
   // Active state
-  &.active,
-  &:active {
+  &:active,
+  &.active {
     background-color: darken(@white, 10%);
     background-color: darken(@white, 15%) e("\9");
     background-image: none;
@@ -82,6 +82,25 @@
     *padding-bottom: 1px;
   }
 
+}
+
+
+a.btn {
+  *padding-top: 5px;
+  *padding-bottom: 5px;
+
+  &.btn-large {
+    *padding-top: 13px;
+    *padding-bottom: 15px;
+  }
+  &.btn-small {
+    *padding-top: 4px;
+    *padding-bottom: 4px;
+  }
+  &.btn-mini {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
 }
 
 
@@ -174,6 +193,11 @@ input[type="button"] {
     *background-color: darken(@btnPrimaryBackgroundHighlight, 5%);
   }
 }
+a.btn-primary-hover:hover {
+  color: #fff;
+  background-color: @btnPrimaryBackgroundHighlight;
+  *background-color: darken(@btnPrimaryBackgroundHighlight, 5%);
+}
 // Warning appears are orange
 .btn-warning {
   .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
@@ -182,6 +206,11 @@ input[type="button"] {
     background-color: @btnWarningBackgroundHighlight;
     *background-color: darken(@btnWarningBackgroundHighlight, 5%);
   }
+}
+a.btn-warning-hover:hover {
+  color: #fff;
+  background-color: @btnWarningBackgroundHighlight;
+  *background-color: darken(@btnWarningBackgroundHighlight, 5%);
 }
 // Danger and error appear as red
 .btn-danger {
@@ -192,6 +221,11 @@ input[type="button"] {
     *background-color: darken(@btnDangerBackgroundHighlight, 5%);
   }
 }
+a.btn-danger-hover:hover {
+  color: #fff;
+  background-color: @btnDangerBackgroundHighlight;
+  *background-color: darken(@btnDangerBackgroundHighlight, 5%);
+}
 // Success appears as green
 .btn-success {
   .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
@@ -200,6 +234,11 @@ input[type="button"] {
     background-color: @btnSuccessBackgroundHighlight;
     *background-color: darken(@btnSuccessBackgroundHighlight, 5%);
   }
+}
+a.btn-success-hover:hover {
+  color: #fff;
+  background-color: @btnSuccessBackgroundHighlight;
+  *background-color: darken(@btnSuccessBackgroundHighlight, 5%);
 }
 // Info appears as a neutral blue
 .btn-info {
@@ -210,6 +249,11 @@ input[type="button"] {
     *background-color: darken(@btnInfoBackgroundHighlight, 5%);
   }
 }
+a.btn-info-hover:hover {
+  color: #fff;
+  background-color: @btnInfoBackgroundHighlight;
+  *background-color: darken(@btnInfoBackgroundHighlight, 5%);
+}
 // Inverse appears as dark gray
 .btn-inverse {
   .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
@@ -218,6 +262,11 @@ input[type="button"] {
     background-color: @btnInverseBackgroundHighlight;
     *background-color: lighten(@btnInverseBackgroundHighlight, 10%);
   }
+}
+a.btn-inverse-hover:hover {
+  color: #fff;
+  background-color: @btnInverseBackgroundHighlight;
+  *background-color: lighten(@btnInverseBackgroundHighlight, 10%);
 }
 
 
