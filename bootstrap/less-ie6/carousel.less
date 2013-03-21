@@ -24,9 +24,12 @@
   }
 
   // Account for jankitude on images
-  .item > img {
+  .item img {
     display: block;
     line-height: 1;
+    
+    *width: 100%;
+    *height: auto;
   }
 
   .active,
@@ -92,9 +95,13 @@
   // .transition(opacity .2s linear);
 
   // Reposition the right one
-  &.right {
+  &-right {
     left: auto;
     right: 15px;
+  }
+
+  &-left {
+    left: 15px;
   }
 
   // Hover state
@@ -117,6 +124,8 @@
   padding: 15px;
   background: @grayDark;
   background: rgba(0,0,0,.75);
+
+  _filter:alpha(opacity=70); // caption 的半透明效果
 }
 .carousel-caption h4,
 .carousel-caption p {

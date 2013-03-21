@@ -393,6 +393,18 @@
         }
       });
 
+      //-------------
+      // carousel
+      //-------------
+      $('.carousel-control.left', el).removeClass('left').addClass('carousel-control-left');
+      $('.carousel-control.right', el).removeClass('right').addClass('carousel-control-right');
+      $('.carousel-caption').each(function() {
+        var self = $(this);
+        var padding = self.outerWidth() - self.width();
+        self.width(self.parents('.carousel-inner .item').width() - padding);
+      });
+
+
     }
   }
   $.bootstrapIE6 = bootstrapIE6;
