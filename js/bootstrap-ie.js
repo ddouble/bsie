@@ -127,8 +127,8 @@
       // dropdown 
       //-------------
       // fix for IE6 not support li:hover
-      var lis = ['dropdown-submenu'];
-      for (var i in lis) {
+      var i, lis = ['dropdown-submenu'];
+      for (i = 0; i < lis.length; i++) {
         var child = 'li.' + lis[i];
         var hover = lis[i] + '-hover';
         $('ul', el).on('mouseenter', child, function () {
