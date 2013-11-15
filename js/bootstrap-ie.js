@@ -121,7 +121,6 @@
       //-------------
       // GRID
       //-------------
-      $('.row-fluid [class*="span"]:first-child, .row [class*="span"]:first-child').addClass('span-first-child');
 
       //-------------
       // dropdown 
