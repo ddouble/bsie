@@ -58,16 +58,12 @@ sub {
 }
 img {
   /* Responsive images (ensure images don't scale beyond their parents) */
-
   max-width: 100%;
   /* Part 1: Set a maxium relative to the parent */
-
   width: auto\9;
   /* IE7-8 need help adjusting responsive images */
-
   height: auto;
   /* Part 2: Scale the height according to the width, otherwise you get stretching */
-
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -203,72 +199,84 @@ a:hover {
 }
 .span12 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 940px;
 }
 .span11 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 860px;
 }
 .span10 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 780px;
 }
 .span9 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 700px;
 }
 .span8 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 620px;
 }
 .span7 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 540px;
 }
 .span6 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 460px;
 }
 .span5 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 380px;
 }
 .span4 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 300px;
 }
 .span3 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 220px;
 }
 .span2 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 140px;
 }
 .span1 {
   float: left;
+  display: inline;
   min-height: 1px;
   margin-left: 20px;
   width: 60px;
@@ -469,7 +477,7 @@ a:hover {
   margin-left: 2.127659574468085%;
   *margin-left: 2.074468085106383%;
   width: 23.404255319148934%;
-  *width: 23.351063829787232%;
+  *width: 23.351063829787233%;
 }
 .row-fluid .span2 {
   display: block;
@@ -498,35 +506,35 @@ a:hover {
   *width: 6.329787234042553%;
 }
 .row-fluid .offset12 {
-  margin-left: 104.25531914893616%;
+  margin-left: 104.25531914893617%;
   *margin-left: 104.14893617021275%;
 }
 .row-fluid .offset12:first-child {
   margin-left: 102.12765957446808%;
-  *margin-left: 102.02127659574466%;
+  *margin-left: 102.02127659574467%;
 }
 .row-fluid .offset11 {
   margin-left: 95.74468085106382%;
   *margin-left: 95.6382978723404%;
 }
 .row-fluid .offset11:first-child {
-  margin-left: 93.61702127659573%;
+  margin-left: 93.61702127659574%;
   *margin-left: 93.51063829787232%;
 }
 .row-fluid .offset10 {
-  margin-left: 87.23404255319148%;
+  margin-left: 87.23404255319149%;
   *margin-left: 87.12765957446807%;
 }
 .row-fluid .offset10:first-child {
   margin-left: 85.1063829787234%;
-  *margin-left: 84.99999999999998%;
+  *margin-left: 84.99999999999999%;
 }
 .row-fluid .offset9 {
   margin-left: 78.72340425531914%;
   *margin-left: 78.61702127659572%;
 }
 .row-fluid .offset9:first-child {
-  margin-left: 76.59574468085105%;
+  margin-left: 76.59574468085106%;
   *margin-left: 76.48936170212764%;
 }
 .row-fluid .offset8 {
@@ -550,7 +558,7 @@ a:hover {
   *margin-left: 53.085106382978715%;
 }
 .row-fluid .offset6:first-child {
-  margin-left: 51.063829787234034%;
+  margin-left: 51.063829787234035%;
   *margin-left: 50.95744680851063%;
 }
 .row-fluid .offset5 {
@@ -591,7 +599,7 @@ a:hover {
 }
 .row-fluid .offset1:first-child {
   margin-left: 8.51063829787234%;
-  *margin-left: 8.404255319148937%;
+  *margin-left: 8.404255319148938%;
 }
 .row-fluid .span-first-child {
   margin-left: 0;
@@ -730,7 +738,6 @@ textarea:focus,
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
-
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
@@ -740,10 +747,8 @@ input[type="checkbox"] {
   margin: 4px 0 0;
   *margin-top: 0;
   /* IE7 */
-
   margin-top: 1px \9;
   /* IE8-9 */
-
   line-height: normal;
   cursor: pointer;
 }
@@ -760,10 +765,8 @@ select,
 input[type="file"] {
   height: 30px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
-
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
-
   line-height: 30px;
 }
 select {
@@ -891,7 +894,8 @@ textarea,
 .controls-row [class*="span"] + [class*="span"] {
   margin-left: 20px;
 }
-input.span12, textarea.span12 {
+input.span12,
+textarea.span12 {
   width: 926px;
   float: none;
   margin-left: 0;
@@ -899,7 +903,8 @@ input.span12, textarea.span12 {
 .uneditable-input.span12 {
   width: 926px;
 }
-input.span11, textarea.span11 {
+input.span11,
+textarea.span11 {
   width: 846px;
   float: none;
   margin-left: 0;
@@ -907,7 +912,8 @@ input.span11, textarea.span11 {
 .uneditable-input.span11 {
   width: 846px;
 }
-input.span10, textarea.span10 {
+input.span10,
+textarea.span10 {
   width: 766px;
   float: none;
   margin-left: 0;
@@ -915,7 +921,8 @@ input.span10, textarea.span10 {
 .uneditable-input.span10 {
   width: 766px;
 }
-input.span9, textarea.span9 {
+input.span9,
+textarea.span9 {
   width: 686px;
   float: none;
   margin-left: 0;
@@ -923,7 +930,8 @@ input.span9, textarea.span9 {
 .uneditable-input.span9 {
   width: 686px;
 }
-input.span8, textarea.span8 {
+input.span8,
+textarea.span8 {
   width: 606px;
   float: none;
   margin-left: 0;
@@ -931,7 +939,8 @@ input.span8, textarea.span8 {
 .uneditable-input.span8 {
   width: 606px;
 }
-input.span7, textarea.span7 {
+input.span7,
+textarea.span7 {
   width: 526px;
   float: none;
   margin-left: 0;
@@ -939,7 +948,8 @@ input.span7, textarea.span7 {
 .uneditable-input.span7 {
   width: 526px;
 }
-input.span6, textarea.span6 {
+input.span6,
+textarea.span6 {
   width: 446px;
   float: none;
   margin-left: 0;
@@ -947,7 +957,8 @@ input.span6, textarea.span6 {
 .uneditable-input.span6 {
   width: 446px;
 }
-input.span5, textarea.span5 {
+input.span5,
+textarea.span5 {
   width: 366px;
   float: none;
   margin-left: 0;
@@ -955,7 +966,8 @@ input.span5, textarea.span5 {
 .uneditable-input.span5 {
   width: 366px;
 }
-input.span4, textarea.span4 {
+input.span4,
+textarea.span4 {
   width: 286px;
   float: none;
   margin-left: 0;
@@ -963,7 +975,8 @@ input.span4, textarea.span4 {
 .uneditable-input.span4 {
   width: 286px;
 }
-input.span3, textarea.span3 {
+input.span3,
+textarea.span3 {
   width: 206px;
   float: none;
   margin-left: 0;
@@ -971,7 +984,8 @@ input.span3, textarea.span3 {
 .uneditable-input.span3 {
   width: 206px;
 }
-input.span2, textarea.span2 {
+input.span2,
+textarea.span2 {
   width: 126px;
   float: none;
   margin-left: 0;
@@ -979,7 +993,8 @@ input.span2, textarea.span2 {
 .uneditable-input.span2 {
   width: 126px;
 }
-input.span1, textarea.span1 {
+input.span1,
+textarea.span1 {
   width: 46px;
   float: none;
   margin-left: 0;
@@ -1213,7 +1228,6 @@ select:focus:required:invalid:focus {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   vertical-align: middle;
   padding-left: 5px;
@@ -1360,7 +1374,6 @@ input.search-query {
   padding-left: 14px;
   padding-left: 4px \9;
   /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
   margin-bottom: 0;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -1417,7 +1430,6 @@ input.search-query {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   margin-bottom: 0;
   vertical-align: middle;
@@ -2183,7 +2195,6 @@ table th[class*="span"],
 .dropdown {
   position: relative;
   /* fix for IE6 BFC */
-
   display: inline;
   *zoom: 1;
 }
@@ -2197,7 +2208,6 @@ table th[class*="span"],
 .caret {
   display: inline-block;
   /* fix for IE6 inline-block */
-
   *display: inline;
   *zoom: 1;
   width: 0;
@@ -2233,7 +2243,6 @@ table th[class*="span"],
   min-width: 160px;
   *height: 1px;
   /* fix for IE6 min-width */
-
   *width: auto !important;
   *width: 160px;
   padding: 5px 0;
@@ -2270,7 +2279,6 @@ table th[class*="span"],
 .dropdown-menu li a {
   display: block;
   /* fix for IE6 BFC */
-
   *zoom: 1;
   padding: 3px 20px;
   clear: both;
@@ -2324,7 +2332,6 @@ table th[class*="span"],
   text-decoration: none;
   background-color: transparent;
   /* fix for ie6 transparent */
-
   *background-color: #fffffe;
   *filter: chroma(color=#fffffe);
   background-image: none;
@@ -2336,7 +2343,6 @@ table th[class*="span"],
 .open .dropdown-menu {
   display: block;
   /* fix for IE6 inline-block */
-
   *zoom: 1;
 }
 .pull-right .dropdown-menu {
@@ -2362,7 +2368,6 @@ table th[class*="span"],
 .dropdown-submenu {
   position: relative;
   /* fix for IE6 absolute element will expand parent element's height */
-
   *display: inline;
   *zoom: 1;
 }
@@ -2391,7 +2396,6 @@ table th[class*="span"],
 .dropdown-submenu a:after {
   display: block;
   /* fix for IE6 BFC */
-
   *zoom: 1;
   content: " ";
   float: right;
@@ -2399,7 +2403,6 @@ table th[class*="span"],
   height: 0;
   border-color: transparent;
   /* fix for IE6 transparent */
-
   *border-color: #fffffe;
   *filter: chroma(color=#fffffe);
   border-style: solid;
@@ -2430,7 +2433,6 @@ table th[class*="span"],
 .dropdown-submenu-pull-left {
   float: none;
   /* fix for IE6 */
-
 }
 .dropdown-submenu-pull-left .dropdown-menu {
   left: -100%;
@@ -2461,7 +2463,6 @@ table th[class*="span"],
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   padding: 4px 12px;
   margin-bottom: 0;
@@ -2485,7 +2486,6 @@ table th[class*="span"],
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #e6e6e6;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   border: 1px solid #bbbbbb;
   *border: 0;
@@ -2522,7 +2522,6 @@ table th[class*="span"],
   background-color: #e6e6e6;
   *background-color: #d9d9d9;
   /* Buttons in IE7 don't get borders, so darken on hover */
-
   background-position: 0 -15px;
   -webkit-transition: background-position 0.1s linear;
   -moz-transition: background-position 0.1s linear;
@@ -2657,7 +2656,6 @@ input[type="button"].btn-block {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #0044cc;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-primary:hover,
@@ -2698,7 +2696,6 @@ a.btn-primary-hover:hover {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #f89406;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-warning:hover,
@@ -2739,7 +2736,6 @@ a.btn-warning-hover:hover {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #bd362f;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-danger:hover,
@@ -2780,7 +2776,6 @@ a.btn-danger-hover:hover {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #51a351;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-success:hover,
@@ -2821,7 +2816,6 @@ a.btn-success-hover:hover {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #2f96b4;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-info:hover,
@@ -2862,7 +2856,6 @@ a.btn-info-hover:hover {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #222222;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-inverse:hover,
@@ -2954,7 +2947,6 @@ input[type="submit"].btn.btn-mini {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   font-size: 0;
   vertical-align: middle;
@@ -2969,7 +2961,6 @@ input[type="submit"].btn.btn-mini {
 }
 .btn-group-first {
   /* fix for IE6 */
-
   margin-left: 0;
 }
 .btn-toolbar {
@@ -3139,7 +3130,6 @@ input[type="submit"].btn.btn-mini {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
 }
 .btn-group-vertical .btn {
@@ -3495,7 +3485,6 @@ input[type="submit"].btn.btn-mini {
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
   /* fix for IE6 li:hover */
-
 }
 .nav-tabs .dropdown-menu .divider {
   *width: 100%;
@@ -3509,7 +3498,6 @@ input[type="submit"].btn.btn-mini {
 .nav-tabs .dropdown-menu li a {
   display: block;
   /* fix for IE6 BFC */
-
   *zoom: 1;
   padding: 3px 20px;
   clear: both;
@@ -3545,7 +3533,6 @@ input[type="submit"].btn.btn-mini {
   -moz-border-radius: 6px;
   border-radius: 6px;
   /* fix for IE6 li:hover */
-
 }
 .nav-pills .dropdown-menu .divider {
   *width: 100%;
@@ -3559,7 +3546,6 @@ input[type="submit"].btn.btn-mini {
 .nav-pills .dropdown-menu li a {
   display: block;
   /* fix for IE6 BFC */
-
   *zoom: 1;
   padding: 3px 20px;
   clear: both;
@@ -4007,7 +3993,6 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .nav li a {
   /* Fix for IE6 inline-block */
-
   *display: inline;
   *zoom: 1;
   float: none;
@@ -4030,7 +4015,6 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .nav .dropdown-toggle {
   /* fix for IE6 */
-
   _padding: 12px;
 }
 .navbar .nav .dropdown-toggle .caret {
@@ -4088,7 +4072,6 @@ input[type="submit"].btn.btn-mini {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #e5e5e5;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
@@ -4124,7 +4107,6 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .nav li .dropdown-menu {
   /* fix for IE6 li:hover */
-
 }
 .navbar .nav li .dropdown-menu:before {
   content: '';
@@ -4159,7 +4141,6 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav li .dropdown-menu li a {
   display: block;
   /* fix for IE6 BFC */
-
   *zoom: 1;
   padding: 3px 20px;
   clear: both;
@@ -4352,7 +4333,6 @@ input[type="submit"].btn.btn-mini {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #040404;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .navbar-inverse .btn-navbar:hover,
@@ -4381,7 +4361,6 @@ input[type="submit"].btn.btn-mini {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   text-shadow: 0 1px 0 #ffffff;
 }
@@ -4400,7 +4379,6 @@ input[type="submit"].btn.btn-mini {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   margin-left: 0;
   margin-bottom: 0;
@@ -4664,7 +4642,6 @@ input[type="submit"].btn.btn-mini {
   * @height triangle height
   * @color triangle color
   */
-
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -4792,7 +4769,6 @@ input[type="submit"].btn.btn-mini {
   * @height triangle height
   * @color triangle color
   */
-
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -4850,6 +4826,7 @@ input[type="submit"].btn.btn-mini {
   display: block;
   line-height: 1;
   *width: 100%;
+  *height: auto;
 }
 .carousel .active,
 .carousel .next,
